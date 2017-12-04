@@ -14,9 +14,9 @@ module.exports = function (grunt) {
     browserify: {
       options: {
         browserifyOptions: {
-            debug: true,
-            }
-        },
+          debug: true,
+        }
+      },
 
       dist: {
         files: {
@@ -25,18 +25,17 @@ module.exports = function (grunt) {
       },
     },
     uglify: {
-          options: {
+      options: {},
+      build: {
+        files: [{
+          expand: true,
+          cwd: "build",
+          src: "*.js",
+          dest: "build",
+          ext: ".min.js"
+        }]
       },
-          build: {
-              files: [{
-                  expand: true,
-                  cwd: "build",
-                  src: "*.js",
-                  dest: "build",
-                  ext: ".min.js"
-              }]
-          },
-      },
+    },
     eslint: {
       src: [
         "**/scripts/**/*.js", "!node_modules/**/*.js"
@@ -44,12 +43,12 @@ module.exports = function (grunt) {
     },
   });
 
- // Load the plugin that provides the "uglify" task.
+  // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-eslint");
   grunt.loadNpmTasks("grunt-browserify");
 
- // Default task(s).
+  // Default task(s).
   grunt.registerTask("default", ["eslint", "browserify", "uglify", "watch"]);
 };
