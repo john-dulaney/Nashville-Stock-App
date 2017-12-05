@@ -18,6 +18,7 @@
     "grunt-eslint": "^20.1.0"
   },
   "dependencies": {
+    "angular-route": "^1.6.7",
     "grunt-contrib-uglify": "^3.2.1"
   }
 }
