@@ -1,5 +1,7 @@
 # Everyday Stock App
-    This app allows you to sign in and view stock prices in real time. It also allows you to save certain stocks, positioning them on your dashboard for easy access. You will also be granted 100 credits that you can bet towards stock! See how much you can make!
+    This app allows you to sign in and view stock prices in real time. 
+    It also allows you to save certain stocks, positioning them on your dashboard for easy access. 
+    You will also be granted 100 credits that you can bet towards stock! See how much you can make!
 
 # The App (hosted)
     -[Everyday Stock App]()  (currently not uploaded)
