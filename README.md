@@ -10,14 +10,20 @@ Download VSC here : [Visual Studio Code](https://code.visualstudio.com/)
 ## Clone the repo
 Open your terminal (cmd+spacebar "terminal") then navigate to a folder you wish to pull the repo to.
 Copy the following into the Terminal:
-    `git clone git@github.com:john-dulaney/front-end-capstone.git`
+```
+git clone git@github.com:john-dulaney/front-end-capstone.git
+```
 
 ## Run it on localhost
 - Using terminal, navigate to the directory with this command:
-    `cd front-end-capstone`
+```
+cd front-end-capstone
+```
 
 - Then type:
-    `http-server` 
+```
+http-server
+``` 
 
 - Use CMD+Click on the ip address in the terminal or copy and paste it into your browser. 
 
