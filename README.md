@@ -24,9 +24,9 @@ Copy the following into the Terminal:
 ### Woo! All done!
 
 # Technology that I used to build this app
--[AngularJS](https://angularjs.org/)
--[CSS](https://www.w3.org/Style/CSS/Overview.en.html)(SASS? [Sass](http://sass-lang.com/) )
--[Git](https://git-scm.com/)
--[Github](https://github.com/)
--[Visual Studio Code](https://code.visualstudio.com/)
+1.[AngularJS](https://angularjs.org/)
+1.[CSS](https://www.w3.org/Style/CSS/Overview.en.html)(SASS? [Sass](http://sass-lang.com/) )
+1.[Git](https://git-scm.com/)
+1.[Github](https://github.com/)
+1.[Visual Studio Code](https://code.visualstudio.com/)
 
