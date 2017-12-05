@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "John Dulaney",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^4.10.0",
@@ -20,5 +20,21 @@
   "dependencies": {
     "angular-route": "^1.6.7",
     "grunt-contrib-uglify": "^3.2.1"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/john-dulaney/front-end-capstone.git"
+  },
+  "keywords": [
+    "Stock",
+    "Market",
+    "App"
+  ],
+  "bugs": {
+    "url": "https://github.com/john-dulaney/front-end-capstone/issues"
+  },
+  "homepage": "https://github.com/john-dulaney/front-end-capstone#readme"
 }

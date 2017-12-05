@@ -15,12 +15,23 @@ git clone git@github.com:john-dulaney/front-end-capstone.git
 ```
 
 ## Run it on localhost
+- Download Node.js, we need this to install npm:
+  [Node.js](https://nodejs.org/en/)
+
+- With terminal, type:
+```
+sudo npm install npm -g
+``` 
+- Now we can install http-server, which we'll use to run the app locally.
+```
+npm install -g http-server
+``` 
+
 - Using terminal, navigate to the directory with this command:
 ```
 cd front-end-capstone
 ```
-
-- Then type:
+- Then:
 ```
 http-server
 ``` 
