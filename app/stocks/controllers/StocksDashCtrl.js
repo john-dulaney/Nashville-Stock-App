@@ -6,6 +6,5 @@
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
     .controller("StocksDashCtrl", function ($scope, $location) {
-        // $scope.userdash = "help me"
-        // StocksFactory
+        // StocksInvestFactory
     })

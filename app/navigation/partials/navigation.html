@@ -1,7 +1,7 @@
 <ul ng-controller="NavigationCtrl" style="list-style: none">
-        <li><a href="/#!/stocks/list">List Stocks</a></li>
+        <li><a href="/#!/stocks/userdash">My Stocks</a></li>
         <li><a href="/#!/stocks/performers">Show Top Performers</a></li>
-        <li><a href="/#!/stocksinvest">Invest!</a></li>
+        <li><a href="/#!/stocks/invest">Invest!</a></li>
         <!-- <li><span ng-include="'app/navigation/partials/search.html'"></span></li> -->
     
         <li class="align-right">
@@ -10,5 +10,5 @@
             </span>
             <span ng-if="!isAuthenticated()"></span>
         </li>
-        <li><a href="/#!/stocks/invest">Invest!</a></li>
+        <li><a href="/#!/stocks/invest">Credit amount: {{ credits }}</a></li>
     </ul>

@@ -4,8 +4,8 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON("package.json"),
     watch: {
       scripts: {
-        files: ["**/app/**/**/*.js", "**/styles/**/*.css", "index.html"],
-        tasks: ["eslint", "browserify"],
+        files: ["**/app/**/*.js", "**/styles/**/*.css", "index.html"],
+        tasks: ["eslint"],
         options: {
           spawn: false,
         },
@@ -47,8 +47,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-eslint");
-  grunt.loadNpmTasks("grunt-browserify");
 
   // Default task(s).
-  grunt.registerTask("default", ["eslint", "browserify", "uglify", "watch"]);
+  grunt.registerTask("default", ["eslint", "uglify", "watch"]);
 };
