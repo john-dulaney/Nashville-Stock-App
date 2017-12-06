@@ -1,21 +1,6 @@
+// Author(s): John Dulaney
+// Purpose: Starts the routing for my app to run. 
+// ┌(° ͜ʖ͡°)┘
+
 const app = angular.module("StockApp", ['ngRoute']) 
 
-angular.module("StockApp").config(function ($routeProvider) {
-    /**
-     * Configure all Angular application routes here
-     */
-    $routeProvider
-        .when("/Stocks/userdash", {
-            templateUrl: "app/stocks/partials/userdash.html",
-            controller: "StockDashCtrl"
-        })
-        .when('/Stocks/new', {
-            templateUrl: 'app/Stocks/partials/create.html',
-            controller: 'StocksCreateCtrl'
-        })
-        // .when('/Stocks/detail/:StockId', {
-        //     templateUrl: 'app/Stocks/partials/detail.html',
-        //     controller: 'StockDetailCtrl'
-        // })
-        .otherwise('/Stocks/userdash')
-})

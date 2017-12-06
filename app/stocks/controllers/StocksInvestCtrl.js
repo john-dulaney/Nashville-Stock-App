@@ -5,6 +5,6 @@
 // imports
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
-    .controller("StocksDashCtrl", function ($scope, $location, StocksFactory) {
-
+    .controller("StocksInvestCtrl", function ($scope, $location) {
+        // StocksFactory
     })
