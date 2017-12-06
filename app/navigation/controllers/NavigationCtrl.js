@@ -5,6 +5,8 @@
 // imports
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
-    .controller("NavigationCtrl", function ($scope, $location, NavigationFactory) {
-
-    })
+    .controller("NavigationCtrl", function ($scope, $location, AuthFactory) {
+        $scope.isAuthenticated = () => AuthFactory.isAuthenticated();
+        $scope.logout = () => AuthFactory.logout();
+    }
+)

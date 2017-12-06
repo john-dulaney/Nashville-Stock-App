@@ -6,7 +6,7 @@ angular.module("StockApp").config(function ($routeProvider) {
      */
     $routeProvider
         .when("/Stocks/userdash", {
-            templateUrl: "app/Stocks/partials/userdash.html",
+            templateUrl: "app/stocks/partials/userdash.html",
             controller: "StockDashCtrl"
         })
         .when('/Stocks/new', {

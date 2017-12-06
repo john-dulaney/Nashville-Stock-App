@@ -4,7 +4,7 @@
 
 // imports
 angular.module("StockApp")
-// naming this controller and passing in required methods/factory
-.controller("StocksCtrl", function ($scope, $location, StocksFactory) {
+    // naming this controller and passing in required methods/factory
+    .controller("StocksCtrl", function ($scope, $location, StocksFactory) {
 
-})
+    })
