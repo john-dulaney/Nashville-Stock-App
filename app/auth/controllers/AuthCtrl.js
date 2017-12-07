@@ -11,6 +11,7 @@ angular.module("StockApp")
 
         //login function, passing in credentials
         $scope.logMeIn = function (credentials) {
+            
             //calling AuthFactory.authenticate function. 
             AuthFactory.authenticate(credentials).then(function (didLogin) {
                 //Places credentials from email/pw into objects ready to be sent to firebase.
@@ -38,5 +39,8 @@ angular.module("StockApp")
                 logMeIn(registerNewUser)
             })
         }
+
+
+        
 
     })

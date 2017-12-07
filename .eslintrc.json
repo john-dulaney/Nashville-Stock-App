@@ -33,7 +33,8 @@
         "block-spacing": 0,
         "switch-colon-spacing": 0,
         "curly": 0,
-        "comma-style": 0
+        "comma-style": 0,
+        "no-unexpected-multiline": 0
     },
      "env": { "es6": true }     
     }

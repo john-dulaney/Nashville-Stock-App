@@ -5,7 +5,7 @@
 // imports
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
-    .controller("StocksInvestCtrl", function ($scope, $location) {
+    .controller("StocksInvestCtrl", function ($http, $scope, $location) {
         $scope.investAmt = {
             value: 1
         }

@@ -1,4 +1,28 @@
-nav > ul > li{
+nav>ul>li {
     display: inline;
     padding-left: 25px;
+}
+
+a {
+    color: #965050
+}
+a:visited {
+    text-decoration: none;
+    color: #965050
+}
+
+a:hover {
+    text-decoration: none;
+    color: blue;
+}
+
+a:focus {
+    text-decoration: none;
+    color: #FF0000;
+}
+
+a:hover,
+a:active {
+    text-decoration: none;
+    color: black
 }
