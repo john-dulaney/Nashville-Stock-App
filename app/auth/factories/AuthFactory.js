@@ -20,7 +20,7 @@ angular.module("StockApp")
                     //if the user already is online and on the userdash partial, performs a reload
                     $timeout(function () {
                         $location.url("/stocks/userdash")
-                    }, 100)
+                    }, 500)
                 } else {
                     $route.reload()
                 }
@@ -32,7 +32,7 @@ angular.module("StockApp")
                 // function to set the partial back to the login screen
                 $timeout(function () {
                     $location.url("/register")
-                }, 100)
+                }, 500)
             }
         })
 
