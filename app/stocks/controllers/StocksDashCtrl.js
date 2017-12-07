@@ -6,5 +6,5 @@
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
     .controller("StocksDashCtrl", function ($scope, $location) {
-        // StocksInvestFactory
+    //    api key: ZZ2RS5PN56S260FBx
     })

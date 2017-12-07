@@ -5,30 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>NSS Employees</title>
+    <title>Everyday Stock App</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body ng-app="StockApp" ng-cloak>
 
     <nav ng-include="'app/navigation/partials/navigation.html'">
-    
+
     </nav>
 
     <div ng-view>
-            <!-- ( ° ͜ʖ͡°)╭∩╮ -->
+        <!-- ( ° ͜ʖ͡°)╭∩╮ -->
     </div>
 
     <!-- <nav ng-include="'app/navigation/partials/footer.html'"> -->
-    
+
     </nav>
 
-<!-- required files for firebase/ang -->
+    <!-- required files for firebase/ang -->
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="./lib/node_modules/firebase/firebase.js"></script>
     <script src="./lib/node_modules/angular/angular.min.js"></script>
     <script src="./lib/node_modules/angular-route/angular-route.min.js"></script>
     <!-- <script src="./build/bundle.js"></script> -->
-<!-- app files  -->
+    <!-- app files  -->
     <script src="./app/app.js"></script>
     <script src="./app/app.config.js"></script>
     <!-- auth  -->

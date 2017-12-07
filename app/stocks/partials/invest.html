@@ -1,8 +1,23 @@
 <div>
-        <h1>STOCKS TO BUY</h1>
+        <h1>Select what you want to invest in</h1>
+                <p>***The user selects a stock from the api here***</p>
+                <input type="text" name="input" ng-model="selectedStock.value" maxlength="4" required>
+                <button ng-click="selectStock(apisomething)">Select Stock</button>
 
-        <h1>Add to the List</h1>
-        <input type="number" min="1" max="20" placeholder="1" ng-model="creditInvest" autofocus>
-        <button ng-click="betStock(stockAmount)">Bet Credits!</button>
-        <p>(20 at a time max)</p>
-</div>
+
+        <h1>Amount</h1>
+        <form name="invest__Form" ng-controller="StocksInvestCtrl">
+                <label>Select Amount of credits you wish to "invest":
+                <input type="number" id="invest" name="input" ng-model="investAmt.value" min="1" max="20" maxlength="2" required>
+                <button ng-click="betStock(stockAmount)">Bet Credits!</button>
+        </label>
+
+                <div role="alert">
+                        <span class="error" ng-show="invest__From.input.$error.required">You must enter a number! (Minimum 1; Maximum 20)</span>
+                        <span class="error" ng-show="invest__From.input.$error.number">We need a number not letters stupid!</span>
+                </div>
+                <span>Credits Committed = {{investAmt.value}}</span><br/>
+                <span>invest__Form.input.$valid = {{invest__Form.input.$valid}}</span><br/>
+                <span>invest__Form.input.$error = {{invest__Form.input.$error}}</span><br/>
+                <span>invest__Form.$valid = {{invest__Form.$valid}}</span><br/>
+                <span>invest__Form.$error.required = {{!!invest__Form.$error.required}}</span><br/>

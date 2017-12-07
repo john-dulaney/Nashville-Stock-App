@@ -9,7 +9,7 @@ angular.module("StockApp")
         return Object.create(null, {
             invest: {
                 value: () => {
-                    $scope.creditInvest.value()
+                    console.log($scope.creditInvest.value())
                 }
             }
         })
