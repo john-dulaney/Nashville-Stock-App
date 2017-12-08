@@ -10,6 +10,26 @@ angular.module("StockApp")
             value: 1
         }
         const StockFactory = StocksFactory.stock()
-        
-        console.log(StockFactory)
+        // console.log(StockFactory)
+
+        StocksFactory.stock()
+            .then(
+                response => {
+                    const stockReturn = [];
+                    for (let key in StocksFactory.cache[1]) {
+                        let element = StocksFactory.cache[1][key];
+                        stockReturn.push(element)
+                    }
+
+                    // debugger
+                    for (let i = 0; i < stockReturn.length; i++) {
+                        let topStocks = stockReturn[i];
+                        if (stockReturn.length <= 10) {
+                            console.log("loop ran if statement")
+                            return topStocks
+                        }
+                    }
+                    console.log(stockReturn);
+
+                })
     })

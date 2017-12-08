@@ -18,12 +18,13 @@ angular.module("StockApp")
                         url: `https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=BTC&market=USD&apikey=ZZ2RS5PN56S260FBx`
                     }).then(response => {
                         const data = response.data
-                            console.log(data)
                         this.cache = Object.keys(data).map(key => {
                             data[key].id = key
                             return data[key]
                         })
-                        console.log(this.cache)
+                        
+                        // const StockFactory = this.cache
+                        // console.log(StockFactory)
                         return this.cache
                     })
                 }

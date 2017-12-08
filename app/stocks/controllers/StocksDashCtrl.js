@@ -5,7 +5,7 @@
 // imports
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
-    .controller("StocksDashCtrl", function ($scope, $location) {
+    .controller("StocksDashCtrl", function ($scope, $location, StocksFactory) {
         //    api key: ZZ2RS5PN56S260FBx
     })
 // const movieController = Object.create(null, {
