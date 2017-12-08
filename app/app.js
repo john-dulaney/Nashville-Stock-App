@@ -2,7 +2,7 @@
 // Purpose: Starts the routing for my app to run. 
 // ┌(° ͜ʖ͡°)┘
 
-const app = angular.module("StockApp", ['ngRoute'])
+const app = angular.module("StockApp", ['ngRoute']) //, 'angular-loading-bar'
 
 
 // `https://www.alphavantage.co/query?function=${stockFunction}&symbol=${stockSymbol}&interval=${stockInterval}&apikey=${apiKey}`

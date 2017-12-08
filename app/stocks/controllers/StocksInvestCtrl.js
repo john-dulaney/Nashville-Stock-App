@@ -18,7 +18,7 @@ angular.module("StockApp")
                     // empty arrays for our JSON return of a gaggle of objects
                     const stockReturn = []
                     const priceReturn = []
-                    // const priceReturn = []
+                    const btcReturn = []
 
                     // for in loop to get the BTC prices
                     for (let key in StocksFactory.cache[1]) {
@@ -42,16 +42,40 @@ angular.module("StockApp")
                         const btcPreviousHour = stockReturn[i]
                         //if statement to reduce the 900 whatever results into 20 (an hours worth)
                         if (i <= 20) {
-                            //for in loop in an attempt to get the first key+value for all 20 runs
-                            for (var key in btcPreviousHour) {
-                                var valueUSD = btcPreviousHour[key];
-                                console.log(key, valueUSD)
-                                $scope.history = `${btcPreviousHour}`
-                                
+                             //for in loop in an attempt to get the first key+value for all 20 runs
+                                var valueUSD = btcPreviousHour["1a. price (USD)"];
+                                btcReturn.push(valueUSD)
+                            // }
+                        }
+                    }
+                    // Chart
+                    const ctx = $("#BTCcanvas");
+                    const canvas = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ["1hr ago", "50", "40", "30", "20", "10", "present"],
+                            datasets: [{
+                                label: 'Price of BTC',
+                                data: btcReturn, // insert response data here 
+                                backgroundColor: [
+                                    'aliceblue'
+                                ],
+                                borderColor: [
+                                    "black"
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
                             }
                         }
-                        // console.log(btcPreviousHour)
-                    }
-                }
+                    });
+                } // end of response
             )
     })

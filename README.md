@@ -42,6 +42,7 @@ http-server
 
 # Technology that I used to build this app
 1. [AngularJS](https://angularjs.org/)
+1. [ChartJS](http://www.chartjs.org/)
 1. [CSS](https://www.w3.org/Style/CSS/Overview.en.html)(SASS? [Sass](http://sass-lang.com/) )
 1. [Git](https://git-scm.com/)
 1. [Github](https://github.com/)
