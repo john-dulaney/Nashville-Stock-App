@@ -27,6 +27,16 @@ angular.module("StockApp")
                     })
                 }
             },
+            "saved": {
+                value: function () {
+                    return $http({
+                        method: "GET",
+                        url: `https://everyday-stock-app.firebaseio.com/storedStock`
+                    }).then(response => {
+                        return this.cache
+                    })
+                }
+            },
             // this GET will be used for BTC as well, once it works
             "quote": {
                 value: function (quoteRequest) {

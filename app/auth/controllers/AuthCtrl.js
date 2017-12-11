@@ -34,7 +34,6 @@ angular.module("StockApp")
 
             //runs  function that stores a new user in firebase
             AuthFactory.registerWithEmail(registerNewUser).then(function (didRegister) {
-                debugger
                 // runs login function so once user is registered, they are sent along.
                 logMeIn(registerNewUser)
             })
