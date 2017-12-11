@@ -41,9 +41,13 @@ http-server
 ### Woo! All done!
 
 # Technology that I used to build this app
+1. [Javascript](https://www.javascript.com/)
+1. [jQuery](https://jquery.com/)
 1. [AngularJS](https://angularjs.org/)
-1. [ChartJS](http://www.chartjs.org/)
+1. [HTML5](https://www.w3.org/TR/html5/)
 1. [CSS](https://www.w3.org/Style/CSS/Overview.en.html)(SASS? [Sass](http://sass-lang.com/) )
+1. [ChartJS](http://www.chartjs.org/)
 1. [Git](https://git-scm.com/)
 1. [Github](https://github.com/)
+1. [Firebase](https://firebase.google.com/)
 1. [Visual Studio Code](https://code.visualstudio.com/)
