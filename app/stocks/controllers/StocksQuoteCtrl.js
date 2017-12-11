@@ -9,13 +9,12 @@ angular.module("StockApp")
         // get Form values for plugging into $http req
         // symbol, series, interval
         quoteRequest = []
-
         $scope.master = {}
 
         $scope.update = function (stock) {
             $scope.master = angular.copy(stock)
             quoteRequest.push($scope.master)
-            // console.log(quoteRequest[0])
+            console.log("Quote request sent, enjoy the wait!")
             StocksFactory.quote(quoteRequest)
             .then(response => {
                 // empty arrays for our JSON return of a gaggle of objects

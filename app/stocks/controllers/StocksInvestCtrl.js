@@ -9,10 +9,10 @@ angular.module("StockApp")
         $scope.investAmt = {
             value: 1
         }
-        const StockFactory = StocksFactory.bitcoin()
+        const StockFactory = CreditFactory.bitcoin()
         // console.log(StockFactory)
 
-        StocksFactory.bitcoin()
+        CreditFactory.bitcoin()
             .then(
                 response => {
                     // empty arrays for our JSON return of a gaggle of objects
@@ -21,8 +21,8 @@ angular.module("StockApp")
                     const btcReturn = []
 
                     // for in loop to get the BTC prices
-                    for (let key in StocksFactory.cache[1]) {
-                        let element = StocksFactory.cache[1][key];
+                    for (let key in CreditFactory.cache[1]) {
+                        let element = CreditFactory.cache[1][key];
                         stockReturn.push(element)
                     }
 
@@ -53,7 +53,7 @@ angular.module("StockApp")
                     const canvas = new Chart(ctx, {
                         type: 'line',
                         data: {
-                            labels: ["1hr ago", "50 Min ago", "40 Min ago", "30 Min ago", "20 Min ago", "10 Min ago", "present"],
+                            labels: ["1hr ago", "50 Min ago", "40 Min ago", "30 Min ago", "20 Min ago", "10 Min ago", "current"],
                             datasets: [{
                                 label: 'Price of BTC',
                                 data: btcReturn, // insert response data here 

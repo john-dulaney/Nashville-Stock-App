@@ -6,7 +6,10 @@
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
     .controller("StocksDashCtrl", function ($scope, $location, StocksFactory) {
-        
-        $scope.update = function (stock) {
-            $scope.master = angular.copy(stock)}
+    // we need an automatic on load request that populates dom with saved movies
+        const saveEvent = StocksFactory.save()
+
+    // we need a button that sends an $http call to server and adds to the db
+    
+    // we need to be able to click on a saved stock, and be brought to a different partial with moreinfor about the clicked stock
     })

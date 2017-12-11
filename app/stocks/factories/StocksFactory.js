@@ -11,30 +11,37 @@ angular.module("StockApp")
                 value: null,
                 writable: true
             },
-            // this GET is temporary
-            "bitcoin": {
-                value: function () {
-                    return $http({
-                        method: "GET",
-                        url: `https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=BTC&market=USD&apikey=ZZ2RS5PN56S260FBx`
-                    }).then(response => {
-                        const data = response.data
-                        this.cache = Object.keys(data).map(key => {
-                            data[key].id = key
-                            return data[key]
+            "save": {
+                value: function (stock) {
+                    return firebase.auth().currentUser.getToken(true)
+                        .then(idtoken => {
+                            return $http({
+                                method: "POST",
+                                url: `https://everyday-stock-app.firebaseio.com/storedStock/.json?auth=${idtoken}`,
+                                data: JSON.stringify({
+                                    stock: stock,
+                                    uid: firebase.auth().currentUser.uid,
+                                })
+                            }).catch(function (error) {
+                                window.alert("Error adding stock. Sry fam.")
+                            })
                         })
-                        return this.cache
-                    })
                 }
             },
-            "saved": {
-                value: function () {
-                    return $http({
-                        method: "GET",
-                        url: `https://everyday-stock-app.firebaseio.com/storedStock`
-                    }).then(response => {
-                        return this.cache
-                    })
+            "show": {
+                value: function (stock) {
+                    return firebase.auth().currentUser.getToken(true)
+                        .then(idtoken => {
+                            return $http({
+                                method: "GET",
+                                url: `https://everyday-stock-app.firebaseio.com/storedStock/.json?auth=${idtoken}`,
+                            })
+                            // .catch(function (error) {
+                            //     window.alert("Error adding stock. Sry fam.")
+                            // })
+                            return this.cache
+                        })
+
                 }
             },
             // this GET will be used for BTC as well, once it works
@@ -58,10 +65,3 @@ angular.module("StockApp")
             }
         })
     })
-
-
-
-
-
-
-
