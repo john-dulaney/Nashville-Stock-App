@@ -1,19 +1,15 @@
 <div>
-        <h1>Select what you want to invest in</h1>
-                <p>***The user selects a stock from the api here***</p>
-                <input type="text" id="stockToGet" name="input" ng-model="selectedStock.value" maxlength="4" required>
-                <button ng-click="selectStock(apisomething)">Select Stock</button>
-
-                <br>
-                <div>{{print}}</div>
-                <br>
-                <br>
-                <h1>Last Hour of Activity for BTC</h1>
-                 <canvas id="BTCcanvas"></canvas>
+        <h1>Checkout Bitcoin</h1>
+        <br>
+        <div>{{print}}</div>
+        <br>
+        <br>
+        <h1>Last Hour of Activity for BTC</h1>
+        <canvas id="BTCcanvas"></canvas>
 
 
 
-                    <!-- token betting -->
+        <!-- token betting -->
         <h1>Amount</h1>
         <form name="invest__Form">
                 <label>Select Amount of credits you wish to "invest":
@@ -25,8 +21,10 @@
                         <span class="error" ng-show="invest__From.input.$error.required">You must enter a number! (Minimum 1; Maximum 20)</span>
                         <span class="error" ng-show="invest__From.input.$error.number">We need a number not letters stupid!</span>
                 </div>
-                <span>Credits Committed = {{investAmt.value}}</span><br/>
-                <span>invest__Form.input.$valid = {{invest__Form.input.$valid}}</span><br/>
-                <span>invest__Form.input.$error = {{invest__Form.input.$error}}</span><br/>
-                <span>invest__Form.$valid = {{invest__Form.$valid}}</span><br/>
-                <span>invest__Form.$error.required = {{!!invest__Form.$error.required}}</span><br/>
+        </form>
+        <span>Credits Committed = {{investAmt.value}}</span><br/>
+        <span>invest__Form.input.$valid = {{invest__Form.input.$valid}}</span><br/>
+        <span>invest__Form.input.$error = {{invest__Form.input.$error}}</span><br/>
+        <span>invest__Form.$valid = {{invest__Form.$valid}}</span><br/>
+        <span>invest__Form.$error.required = {{!!invest__Form.$error.required}}</span><br/>
+</div>

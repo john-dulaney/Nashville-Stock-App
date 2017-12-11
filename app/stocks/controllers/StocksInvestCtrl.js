@@ -9,10 +9,10 @@ angular.module("StockApp")
         $scope.investAmt = {
             value: 1
         }
-        const StockFactory = StocksFactory.stock()
+        const StockFactory = StocksFactory.bitcoin()
         // console.log(StockFactory)
 
-        StocksFactory.stock()
+        StocksFactory.bitcoin()
             .then(
                 response => {
                     // empty arrays for our JSON return of a gaggle of objects

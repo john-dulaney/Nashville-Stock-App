@@ -1,15 +1,46 @@
 <div>
     <h1>I am the users dashboard</h1>
     <section>
-        Current Watched Stocks
-
-        <h1>Add to the List</h1>
-        <input type="text" placeholder="Stock" autofocus>
-        <button ng-click="watchStock(thisDoesNothing)">Add stock to Watch List</button>
+        <h2>Current Watched Stocks</h2>
+        <br>
+        <h2>Add to the List</h2>
+        <br>
+        <!-- <input type="text" placeholder="Stock" autofocus>
+        <button ng-click="watchStock(thisDoesNothing)">Add stock to Watch List</button> -->
     </section>
-
+    
     <section>
-        Stock Market right now
+        <h1>Get a quote</h1>
+        <div ng-controller="StocksDashCtrl">
+            <form novalidate class="quote__Form">
+                <label>Get a Quote: (ex: Microsoft -> MSFT) <input type="text" ng-model="stock.symbol" maxlength="4"/></label>
+                   <p> Get a full list and potentially make the desire for using this site useless <a href="https://www.nyse.com/listings_directory/stock">here.</a></p>
+                Select a time series: 
+                <!-- (1) intraday, (2) daily, (3) weekly, and (4) monthly. -->
+                <label><input type="radio" ng-model="stock.series" value="intraday" />intraday</label>
+                <label><input type="radio" ng-model="stock.series" value="daily" />daily</label>
+                <label><input type="radio" ng-model="stock.series" value="weekly" />weekly</label>
+                <label><input type="radio" ng-model="stock.series" value="monthly" />monthly</label>
+                <br />
+                Select a time interval: 
+                <!-- 1min, 5min, 15min, 30min, 60min -->
+                <label><input type="radio" ng-model="stock.interval" value="1min" />1min</label>
+                <label><input type="radio" ng-model="stock.interval" value="5min" />5min</label>
+                <label><input type="radio" ng-model="stock.interval" value="15min" />15min</label>
+                <label><input type="radio" ng-model="stock.interval" value="30min" />30min</label>
+                <label><input type="radio" ng-model="stock.interval" value="60min" />60min</label>
+                <br />
+                <input type="button" ng-click="reset()" value="Reset" />
+                <input type="submit" ng-click="update(stock)" value="Get quote" />
+            </form>
+            <pre>Value of form - Unsaved = {{stock | json}}</pre>
+            <pre>Value of form  - Saved  = {{master | json}}</pre>
+        </div>
     </section>
-
+    <br>
+    <br>
+    <br>
+    <div>{{print}}</div>
+    <canvas id="quoteCanvas"></canvas>
+    
 </div>
