@@ -22,9 +22,6 @@ angular.module("StockApp")
                             data[key].id = key
                             return data[key]
                         })
-                        
-                        // const StockFactory = this.cache
-                        // console.log(StockFactory)
                         return this.cache
                     })
                 }

@@ -53,7 +53,7 @@ angular.module("StockApp")
                     const canvas = new Chart(ctx, {
                         type: 'line',
                         data: {
-                            labels: ["1hr ago", "50", "40", "30", "20", "10", "present"],
+                            labels: ["1hr ago", "50 Min ago", "40 Min ago", "30 Min ago", "20 Min ago", "10 Min ago", "present"],
                             datasets: [{
                                 label: 'Price of BTC',
                                 data: btcReturn, // insert response data here 
@@ -70,7 +70,7 @@ angular.module("StockApp")
                             scales: {
                                 yAxes: [{
                                     ticks: {
-                                        beginAtZero: true
+                                        beginAtZero: false
                                     }
                                 }]
                             }
