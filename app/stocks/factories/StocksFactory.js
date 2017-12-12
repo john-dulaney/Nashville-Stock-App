@@ -54,19 +54,24 @@ angular.module("StockApp")
             "show": {
                 value: function () {
                     const currentUserID = AuthFactory.authCache()
-                    console.log(currentUserID.uid)
                     return firebase.auth().currentUser.getToken(true)
                         .then(idtoken => {
                             return $http({
-                                method: "GET",
-                                url: `https://${firebaseURL}/storedStock/.json?auth=${idtoken}&orderBy="uid"&equalTo="${currentUserID.uid}"`
-                            }).then(response => {
-                                console.log(response)
-                            })
-                            // .catch(function (error) {
-                            // window.alert(currentUserID)
-                            // console.log(currentUserID)
-                            // })
+                                    method: "GET",
+                                    url: `https://${firebaseURL}/storedStock/.json?auth=${idtoken}&orderBy="uid"&equalTo="${currentUserID.uid}"`
+                                }).then(response => {
+                                    for (let key in response.data) {
+                                        let userObjects = response.data[key];
+                                        for (let key in userObjects) {
+                                                let stockSymbol = userObjects[key];
+                                                console.log(stockSymbol)
+                                        }
+                                    }
+                                })
+                                .catch(function (error) {
+                                    window.alert("Error Fetching dashboard Data.")
+                                })
+                                return this.cache
                         })
                 }
             },

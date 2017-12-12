@@ -9,6 +9,8 @@ angular.module("StockApp")
 
         // we need an automatic on load request that populates dom with saved stocks
         StocksFactory.show()
+        console.log(StocksFactory.cache)
+        // $scope.watched = 
             // .then(
             //     console.log(storedStock)
             // )
