@@ -9,6 +9,7 @@
   "author": "John Dulaney",
   "license": "MIT",
   "devDependencies": {
+    "angular-chart.js": "^1.1.1",
     "eslint": "^4.10.0",
     "eslint-config-google": "^0.9.1",
     "eslint-plugin-import": "^2.8.0",

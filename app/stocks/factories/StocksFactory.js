@@ -53,14 +53,14 @@ angular.module("StockApp")
             // Filter function for the stored stocks/ids to only get the objects uniqut to the current uid
             "show": {
                 value: function () {
-                    const currentUserID = AuthFactory.authCache
+                    const currentUserID = AuthFactory.authCache()
+                    console.log(currentUserID.uid)
                     return firebase.auth().currentUser.getToken(true)
                         .then(idtoken => {
                             return $http({
                                 method: "GET",
-                                url: `https://${firebaseURL}/storedStock/.json?auth=${idtoken}&orderBy="uid"&equalTo="${currentUserID}"`
+                                url: `https://${firebaseURL}/storedStock/.json?auth=${idtoken}&orderBy="uid"&equalTo="${currentUserID.uid}"`
                             }).then(response => {
-                                console.log(currentUserID)
                                 console.log(response)
                             })
                             // .catch(function (error) {

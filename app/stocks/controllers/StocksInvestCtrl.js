@@ -50,17 +50,27 @@ angular.module("StockApp")
                     // Chart
                     const ctx = $("#BTCcanvas");
                     const canvas = new Chart(ctx, {
-                        type: 'radar',
+                        type: 'line',
                         data: {
                             labels: ["1hr ago", "50 Min ago", "40 Min ago", "30 Min ago", "20 Min ago", "10 Min ago", "current"],
                             datasets: [{
                                 label: 'Price of BTC',
                                 data: btcReturn, // insert response data here 
                                 backgroundColor: [
-                                    'aliceblue'
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
                                 ],
                                 borderColor: [
-                                    "black"
+                                    'rgba(255,99,132,1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
                                 ],
                                 borderWidth: 1
                             }]

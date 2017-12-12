@@ -7,7 +7,7 @@ angular.module("StockApp")
     // naming the factory, passing in appropriate angular methods
     .factory("AuthFactory", function ($http, $timeout, $location, $route) {
         // Set to null for some reason, need explanation
-        let currentUserData = null
+        let currentUserData = ""
 
         // call firebase methods, if user is on or off, execute following if, else
         firebase.auth().onAuthStateChanged(function (user) {
