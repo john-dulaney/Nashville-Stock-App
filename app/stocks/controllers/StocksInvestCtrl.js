@@ -1,17 +1,16 @@
 // Author(s): John Dulaney
-// Purpose: 
+// Purpose: This module is the controller for my 'invest.html'. It manages the form on that page as well as the $http request for bitcoin DATA from my API.
 // ┌(° ͜ʖ͡°)┘
 
 // imports
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
-    .controller("StocksInvestCtrl", function ($scope, $location, StocksFactory) {
+    .controller("StocksInvestCtrl", function ($scope, $location, CreditFactory) {
         $scope.investAmt = {
             value: 1
         }
-        const StockFactory = CreditFactory.bitcoin()
-        // console.log(StockFactory)
-
+        // const CreditsFactory = CreditFactory.bitcoin()
+        
         CreditFactory.bitcoin()
             .then(
                 response => {
@@ -42,16 +41,16 @@ angular.module("StockApp")
                         const btcPreviousHour = stockReturn[i]
                         //if statement to reduce the 900 whatever results into 20 (an hours worth)
                         if (i <= 20) {
-                             //for in loop in an attempt to get the first key+value for all 20 runs
-                                var valueUSD = btcPreviousHour["1a. price (USD)"];
-                                btcReturn.push(valueUSD)
+                            //for in loop in an attempt to get the first key+value for all 20 runs
+                            var valueUSD = btcPreviousHour["1a. price (USD)"];
+                            btcReturn.push(valueUSD)
                             // }
                         }
                     }
                     // Chart
                     const ctx = $("#BTCcanvas");
                     const canvas = new Chart(ctx, {
-                        type: 'line',
+                        type: 'radar',
                         data: {
                             labels: ["1hr ago", "50 Min ago", "40 Min ago", "30 Min ago", "20 Min ago", "10 Min ago", "current"],
                             datasets: [{
@@ -78,4 +77,4 @@ angular.module("StockApp")
                     });
                 } // end of response
             )
-    })
+    }) // end of module

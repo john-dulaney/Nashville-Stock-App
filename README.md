@@ -2,7 +2,7 @@
 This app allows you to sign in and view stock prices in real time. It also allows you to save certain stocks, positioning them on your dashboard for easy access. You will also be granted 100 credits that you can bet towards stock! See how much you can make!
 
 # The App (hosted)
-- [Everyday Stock App]()  (currently not uploaded)
+- [Everyday Stock App](https://john-dulaney.github.io/front-end-capstone/)  (currently uploaded, but not loaading properly)
 # The App (local host)
 ## Visual Studio Code
 Download VSC here : [Visual Studio Code](https://code.visualstudio.com/)

@@ -28,7 +28,7 @@ angular.module("StockApp")
             } else {
                 // the users auth state changed to not online or null this method fires
                 currentUserData = null
-                console.log("User is not authenticated")
+                // console.log("User is not authenticated")
                 // function to set the partial back to the login screen
                 $timeout(function () {
                     $location.url("/register")

@@ -5,6 +5,8 @@
         <p>{{ watched }}</p>
         <!-- {{watchedStocks.stuff}} -->
         <br>
+        <button ng-click="watch(stock)" value="Add Stock to Watch List" ng-model="watchListButton">Add stock to Watch List</button>
+        
     </div>
 
     <section>
@@ -28,12 +30,12 @@
                 <label><input type="radio" ng-model="stock.interval" value="60min" />60min</label>
                 <br />
                 <input type="button" ng-click="reset()" value="Reset" />
-                <input type="submit" ng-click="update(stock)" value="Get quote" />
+                <input type="submit" ng-click="request(stock)" value="Get quote" />
+                <button ng-click="watch(stock)">Add stock to Watch List</button>
             </form>
             <br>
             <br>
             <div>{{quote}}</div>
-            <button ng-click="watch(stock)">Add stock to Watch List</button>
 
             <!-- <pre>Value of form - Unsaved = {{stock | json}}</pre> -->
             <pre>Value of form  - Saved  = {{master | json}}</pre>
