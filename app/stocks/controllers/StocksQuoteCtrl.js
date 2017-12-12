@@ -10,8 +10,8 @@ angular.module("StockApp")
         // symbol, series, interval
         quoteRequest = []
         $scope.master = {}
-        $scope.watch = function () {
-            StocksFactory.save($scope.master)
+        $scope.watch = function (stock) {
+            StocksFactory.save(stock)
         }
 
         $scope.request = function (stock) {

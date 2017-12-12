@@ -5,7 +5,7 @@
 // Imports
 angular.module("StockApp")
     // naming the factory, passing in appropriate angular methods
-    .factory("StocksFactory", function ($http, $timeout, $location, $route) {
+    .factory("StocksFactory", function ($http, $timeout, $location, $route, AuthFactory) {
         const firebaseURL = "everyday-stock-app.firebaseio.com"
         return Object.create(null, {
             "cache": {
@@ -34,6 +34,7 @@ angular.module("StockApp")
             // saves stock symbol and uid into FB
             "save": {
                 value: function (stock) {
+                    console.log(stock)
                     return firebase.auth().currentUser.getToken(true)
                         .then(idtoken => {
                             return $http({
@@ -51,16 +52,21 @@ angular.module("StockApp")
             },
             // Filter function for the stored stocks/ids to only get the objects uniqut to the current uid
             "show": {
-                value: function (ay) {
-                    this.all()
-                        .then(function (response) {
-                            response.filter(
-                                storedStock => firebase.auth().currentUser.uid === storedStock.uid && storedStock.stock === ay)
-                                .catch(function (error) {
-                                    console.log(response)
-                                    window.alert("i got this far")
-                                })
-                            return this.cache
+                value: function () {
+                    const currentUserID = AuthFactory.authCache
+                    return firebase.auth().currentUser.getToken(true)
+                        .then(idtoken => {
+                            return $http({
+                                method: "GET",
+                                url: `https://${firebaseURL}/storedStock/.json?auth=${idtoken}&orderBy="uid"&equalTo="${currentUserID}"`
+                            }).then(response => {
+                                console.log(currentUserID)
+                                console.log(response)
+                            })
+                            // .catch(function (error) {
+                            // window.alert(currentUserID)
+                            // console.log(currentUserID)
+                            // })
                         })
                 }
             },

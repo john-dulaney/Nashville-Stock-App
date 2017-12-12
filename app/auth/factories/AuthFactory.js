@@ -38,7 +38,13 @@ angular.module("StockApp")
 
         // return an obj.cr for method calling and storing later in the project
         return Object.create(null, {
-            // logic for if user is authed
+            authCache: {
+                value: function () {
+                    return currentUserData
+                },
+                enumerable: true,
+                writable: true
+            },
             isAuthenticated: {
                 // value function setting user to currentUserData, used above around lines 13-15
                 value: () => {
