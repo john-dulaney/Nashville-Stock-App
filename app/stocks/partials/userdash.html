@@ -2,7 +2,7 @@
     <div ng-controller="StocksDashCtrl">
         <h1>I am the users dashboard</h1>
         <h2>Current Watched Stocks</h2>
-        <p>{{ watched }}</p>
+        <p id="fuckMe" ng-repeat="emptyarray">{{ watched }}</p>
         <!-- {{watchedStocks.stuff}} -->
         <br>
         <button ng-click="watch(stock)" value="Add Stock to Watch List" ng-model="watchListButton">Add stock to Watch List</button>

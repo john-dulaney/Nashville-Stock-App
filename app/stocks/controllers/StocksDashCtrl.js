@@ -6,13 +6,18 @@
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
     .controller("StocksDashCtrl", function ($scope, $location, StocksFactory) {
-
+        emptyarray = []
         // we need an automatic on load request that populates dom with saved stocks
         StocksFactory.show()
-        .then(
-        console.log(StocksFactory.cache)
-        // $scope.watched = 
-            )
+        .then(response => {
+            for (let key in response.data) {
+                let userObjects = response.data[key]
+                emptyarray.push(userObjects["stock"])
+            }
+            console.log(emptyarray)
+            
+
+            })
     })
 
 

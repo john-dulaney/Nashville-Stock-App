@@ -59,14 +59,6 @@ angular.module("StockApp")
                             return $http({
                                     method: "GET",
                                     url: `https://${firebaseURL}/storedStock/.json?auth=${idtoken}&orderBy="uid"&equalTo="${currentUserID.uid}"`
-                                }).then(response => {
-                                    for (let key in response.data) {
-                                        let userObjects = response.data[key];
-                                        for (let key in userObjects) {
-                                                let stockSymbol = userObjects[key];
-                                                console.log(stockSymbol)
-                                        }
-                                    }
                                 })
                                 .catch(function (error) {
                                     window.alert("Error Fetching dashboard Data.")
