@@ -1,7 +1,13 @@
 <div>
     <div ng-controller="StocksDashCtrl">
         <div id="fuckMe">
+            Welcome back {{ userEmail }}
+            <h3>Current Watched Stocks</h3>
             
+            <div ng-repeat="quoteObject in allQuotes">
+                {{quoteObject.symbol}}: {{quoteObject.price}}
+            </div>
+
         </div>
         <!-- {{watchedStocks.stuff}} -->
         <br>

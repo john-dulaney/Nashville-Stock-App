@@ -54,7 +54,7 @@ angular.module("StockApp")
             },
             // retrieves user from firebase.
             getUser: {
-                value: () => firebase.auth().currentUser
+                value: () => currentUserData
             },
             // logs user out of firebase
             logout: {

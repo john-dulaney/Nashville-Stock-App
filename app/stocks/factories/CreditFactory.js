@@ -17,8 +17,7 @@ angular.module("StockApp")
             //                 credits = previouslyAssignedCreditValue
             //             }
             //         })
-            // },
-
+            // }
             
             // this GET is temporary
             "bitcoin": {

@@ -13,7 +13,7 @@ angular.module("StockApp")
         $scope.watch = function (stock) {
             StocksFactory.save(stock)
         }
-        $scope.watchupper = function (topStock) {
+        $scope.watchUpper = function (topStock) {
             StocksFactory.save(topStock)
         }
 
