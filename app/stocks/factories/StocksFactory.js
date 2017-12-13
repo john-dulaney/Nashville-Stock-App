@@ -63,7 +63,7 @@ angular.module("StockApp")
                                 .catch(function (error) {
                                     window.alert("Error Fetching dashboard Data.")
                                 })
-                                return this.cache
+                            return this.cache
                         })
                 }
             },

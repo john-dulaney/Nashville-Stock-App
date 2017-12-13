@@ -9,14 +9,24 @@ angular.module("StockApp")
         emptyarray = []
         // we need an automatic on load request that populates dom with saved stocks
         StocksFactory.show()
-        .then(response => {
-            for (let key in response.data) {
-                let userObjects = response.data[key]
-                emptyarray.push(userObjects["stock"])
-            }
-            console.log(emptyarray)
-            
+            .then(response => {
+                for (let key in response.data) {
+                    let userObjects = response.data[key]
+                    emptyarray.push(userObjects["stock"])
+                }
+                let stringArray = emptyarray.toString()
+                stringArray.toUpperCase()
+                console.log("Current user stored Stocks = ", stringArray.toUpperCase())
+                console.log("Current user stored Stocks = ", emptyarray)
 
+                // DEORECATED CODE BUT I DONT KNOW/FORGOT HOW TO ANGULAR.
+                let resultEl = ""
+                emptyarray.forEach(stock => {
+                    resultEl += ` <ul>
+                <li>${stock}</li>
+                </ul> `
+                })
+                $('#fuckMe').html(resultEl)
             })
     })
 

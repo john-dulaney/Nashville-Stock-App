@@ -8,6 +8,18 @@ angular.module("StockApp")
                 value: null,
                 writable: true
             },
+            "set": {
+                value: this.creditRequest()
+                    .then(assignCredit => {
+                        if (user === newUser) {
+                            credits = 100
+                        } else {
+                            credits = previouslyAssignedCreditValue
+                        }
+                    })
+            }
+
+            ,
             // this GET is temporary
             "bitcoin": {
                 value: function () {
@@ -41,7 +53,7 @@ angular.module("StockApp")
                                     })
                                 })
                                 .catch(function (error) {
-                                    window.alert("Error Fetching dashboard Data.")
+                                    console.log("Error Fetching Credit Data.")
                                 })
                             return this.cache
                         })

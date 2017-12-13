@@ -13,6 +13,9 @@ angular.module("StockApp")
         $scope.watch = function (stock) {
             StocksFactory.save(stock)
         }
+        $scope.watchupper = function (topStock) {
+            StocksFactory.save(topStock)
+        }
 
         $scope.request = function (stock) {
             $scope.master = angular.copy(stock)
@@ -59,7 +62,7 @@ angular.module("StockApp")
                     // Chart
                     const ctx = $("#quoteCanvas");
                     const canvas = new Chart(ctx, {
-                        type: 'radar',
+                        type: 'line',
                         data: {
                             labels: ["1hr ago", "50 Min ago", "40 Min ago", "30 Min ago", "20 Min ago", "10 Min ago", "present"],
                             datasets: [{

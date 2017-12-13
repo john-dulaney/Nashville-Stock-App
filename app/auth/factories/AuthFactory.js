@@ -63,19 +63,14 @@ angular.module("StockApp")
             // authentication function check the email/pw against the store values in fb
             authenticate: {
                 value: credentials =>
-                    firebase.auth()
-                    .signInWithEmailAndPassword(
-                        credentials.email,
-                        credentials.password
-                    )
+                    firebase.auth().signInWithEmailAndPassword(credentials.email,credentials.password)
             },
             // creates a new user
             registerWithEmail: {
                 value: user =>
-                    firebase.auth()
-                    .createUserWithEmailAndPassword(
-                        user.email,
-                        user.password
+                    firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+                    .then(
+                        CreditFactory.set()
                     )
             }
         })

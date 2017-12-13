@@ -2,10 +2,13 @@
     <div ng-controller="StocksDashCtrl">
         <h1>I am the users dashboard</h1>
         <h2>Current Watched Stocks</h2>
-        <p id="fuckMe" ng-repeat="emptyarray">{{ watched }}</p>
+        <div id="fuckMe">
+
+        </div>
         <!-- {{watchedStocks.stuff}} -->
         <br>
-        <button ng-click="watch(stock)" value="Add Stock to Watch List" ng-model="watchListButton">Add stock to Watch List</button>
+        <label>Manually add a Symbol <input type="text" ng-model="topStock.symbol" maxlength="4"/></label>
+        <button ng-click="watchUpper(topStock)" value="Add Stock to Watch List" ng-model="watchListButton">Add stock to Watch List</button>
         
     </div>
 
