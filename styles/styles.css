@@ -1,8 +1,16 @@
+html {
+    background-color: lightsalmon;
+}
 nav>ul>li {
     display: inline;
     padding: 25px;
+    margin: 10px;
     background-color: tomato;
     color: white;
+}
+
+#bodyDiv {
+    margin-top: 50px;
 }
 
 a {
