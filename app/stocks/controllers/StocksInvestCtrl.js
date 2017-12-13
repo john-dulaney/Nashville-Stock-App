@@ -40,7 +40,7 @@ angular.module("StockApp")
                     for (let i = 0; i < stockReturn.length; i++) {
                         const btcPreviousHour = stockReturn[i]
                         //if statement to reduce the 900 whatever results into 20 (an hours worth)
-                        if (i <= 20) {
+                        if (i <= 7) {
                             //for in loop in an attempt to get the first key+value for all 20 runs
                             var valueUSD = btcPreviousHour["1a. price (USD)"];
                             btcReturn.push(valueUSD)

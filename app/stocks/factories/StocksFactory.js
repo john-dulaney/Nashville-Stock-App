@@ -44,6 +44,15 @@ angular.module("StockApp")
                                     stock: stock.symbol,
                                     uid: firebase.auth().currentUser.uid,
                                 }
+                                // function symbolCheck () {
+                                //     if (topStock.symbol === undefined) {
+                                //         return stock.symbol
+                                //     } else if (stock.symbol === undefined){
+                                //         return topStock.symbol
+                                //     } else if (topStock.symbol === undefined && stock.symbol === undefined){
+                                //         window.alert("you did not type anything in")
+                                //     }
+                                // }
                             }).catch(function (error) {
                                 window.alert("Error adding stock. Sry fam.")
                             })

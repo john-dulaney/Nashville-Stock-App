@@ -1,25 +1,25 @@
 // Imports
 angular.module("StockApp")
     // naming the factory, passing in appropriate angular methods
-    .factory("CreditFactory", function ($http, $timeout, $location, $route) {
+    .factory("CreditFactory", function ($http, $timeout, $location, $route, AuthFactory) {
         const firebaseURL = "everyday-stock-app.firebaseio.com"
         return Object.create(null, {
             "cache": {
                 value: null,
                 writable: true
             },
-            "set": {
-                value: this.creditRequest()
-                    .then(assignCredit => {
-                        if (user === newUser) {
-                            credits = 100
-                        } else {
-                            credits = previouslyAssignedCreditValue
-                        }
-                    })
-            }
+            // "set": {
+            //     value: this.creditRequest()
+            //         .then(assignCredit => {
+            //             if (user === newUser) {
+            //                 credits = 100
+            //             } else {
+            //                 credits = previouslyAssignedCreditValue
+            //             }
+            //         })
+            // },
 
-            ,
+            
             // this GET is temporary
             "bitcoin": {
                 value: function () {

@@ -5,8 +5,9 @@
 // imports
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
-    .controller("StocksDashCtrl", function ($scope, $location, StocksFactory) {
+    .controller("StocksDashCtrl", function ($scope, $location, StocksFactory, AuthFactory) {
         emptyarray = []
+        console.log("Current user: ", AuthFactory.getUser().email)
         // we need an automatic on load request that populates dom with saved stocks
         StocksFactory.show()
             .then(response => {
@@ -21,9 +22,15 @@ angular.module("StockApp")
 
                 // DEORECATED CODE BUT I DONT KNOW/FORGOT HOW TO ANGULAR.
                 let resultEl = ""
+                let userEmail = AuthFactory.getUser().email
+                resultEl += `
+                <h1>Welcome Back ${userEmail}</h1>
+                <h3>Current Watched Stocks</h3>
+                `
                 emptyarray.forEach(stock => {
-                    resultEl += ` <ul>
-                <li>${stock}</li>
+                    resultEl += ` 
+                <ul>
+                    <li>${stock}</li>
                 </ul> `
                 })
                 $('#fuckMe').html(resultEl)
