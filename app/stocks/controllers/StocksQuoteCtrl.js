@@ -8,6 +8,7 @@ angular.module("StockApp")
     .controller("StocksQuoteCtrl", function ($scope, $location, StocksFactory) {
         // get Form values for plugging into $http req
         // symbol, series, interval
+        //form functions, save calls, some empty array/objects
         quoteRequest = []
         $scope.master = {}
         $scope.watch = function (stock) {
@@ -17,10 +18,11 @@ angular.module("StockApp")
             StocksFactory.save(topStock)
         }
 
+        // Request stock info from api
         $scope.request = function (stock) {
             $scope.master = angular.copy(stock)
             quoteRequest.push($scope.master)
-
+            console.log(quoteRequest)
             console.log("Quote request sent, enjoy the wait!")
 
             StocksFactory.quote(quoteRequest)
@@ -29,6 +31,7 @@ angular.module("StockApp")
                     const stockReturn = []
                     const priceReturn = []
                     const amtReturn = []
+                    console.log(quoteObjectArray)
                     console.log(StocksFactory.cache[0])
 
                     // for in loop to get the prices

@@ -1,5 +1,5 @@
 html {
-    background-color: lightsalmon;
+    background-color: rgba(183, 4, 94, 0.1)
 }
 nav>ul>li {
     display: inline;
@@ -13,6 +13,10 @@ nav>ul>li {
     margin-top: 50px;
 }
 
+.smallFont {
+    font-size: 13px;
+    font-weight: italic;
+}
 a {
     color: white;
     

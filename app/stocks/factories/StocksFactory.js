@@ -35,7 +35,7 @@ angular.module("StockApp")
             "save": {
                 value: function (stock, topStock) {
                     console.log(stock)
-                    console.log(topStock)
+                    // console.log(topStock)
                     return firebase.auth().currentUser.getToken(true)
                         .then(idtoken => {
                             return $http({
@@ -63,6 +63,7 @@ angular.module("StockApp")
             // Filter function for the stored stocks/ids to only get the objects uniqut to the current uid
             "show": {
                 value: function () {
+                    console.log("show request sent")
                     const currentUserID = AuthFactory.authCache()
                     return firebase.auth().currentUser.getToken(true)
                         .then(idtoken => {
@@ -73,6 +74,7 @@ angular.module("StockApp")
                                 .catch(function (error) {
                                     window.alert("Error Fetching dashboard Data.")
                                 })
+                            console.log(this.cache)
                             return this.cache
                         })
                 }
@@ -80,20 +82,20 @@ angular.module("StockApp")
             // this GET will be used for BTC as well, once it works
             "quote": {
                 value: function (tickerSymbol) {
+                    console.log("quote request sent")
                     return $http({
                         method: "GET",
                         url: `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${tickerSymbol}&interval=1min&apikey=ZZ2RS5PN56S260FBx`
-                        // 1. the market to draw from  = quoteRequest[0].series
                         // 2. 3-4 letters symbol = quoteRequest[0].symbol
-                        // 3. interval of data = quoteRequest[0].interval
                     }).then(response => {
                         // debugger
 
                         const timeSeries = response.data["Time Series (1min)"]
 
-                        const timeSeriesArray = Object.keys(timeSeries).map(key => {
-                            return timeSeries[key]
-                        })
+                        const timeSeriesArray = Object.keys(timeSeries)
+                            .map(key => {
+                                return timeSeries[key]
+                            })
 
                         let lastQuote = timeSeriesArray[timeSeriesArray.length - 1]
                         lastQuote = lastQuote["2. high"]

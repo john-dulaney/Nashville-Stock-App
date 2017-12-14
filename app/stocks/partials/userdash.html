@@ -2,8 +2,8 @@
     <div ng-controller="StocksDashCtrl">
 
         <div>
-            Welcome back {{ userEmail }}
-            <h3>Current Watched Stocks</h3>
+            Welcome <span style="font-weight: bold">{{ userEmail }}</span>
+            <h3>Your Current Watched Stocks</h3>
             
             <div ng-repeat="quoteObject in allQuotes">
                 <span style="font-weight: bold">{{quoteObject.symbol}}:</span> <span style="color:green;"> {{quoteObject.price}}</span>
@@ -18,11 +18,15 @@
     </div>
 
     <section>
-        <h1>Get a quote</h1>
         <div ng-controller="StocksQuoteCtrl">
             <form novalidate class="quote__Form">
-                <label>Get a Quote: (ex: Microsoft -> MSFT) <input type="text" ng-model="stock.symbol" maxlength="4"/></label>
-                <p> Get a full list and potentially make the desire for using this site useless <a href="https://www.nyse.com/listings_directory/stock">here.</a></p>
+                <br>
+                <br>
+                <hr>
+                <label>Get a Quote: <span class="smallFont">(ex: Microsoft -> MSFT)</span> <input type="text" ng-model="stock.symbol" maxlength="4"/></label>
+                <div class="smallFont"> Get a full list and potentially make the desire for using this site useless <a href="https://www.nyse.com/listings_directory/stock">here.</a></div>
+                <br>
+                <div>
                 Select a time series:
                 <!-- (1) intraday, (2) daily, (3) weekly, and (4) monthly. -->
                 <label><input type="radio" ng-model="stock.series" value="intraday" />intraday</label>
@@ -37,9 +41,10 @@
                 <label><input type="radio" ng-model="stock.interval" value="30min" />30min</label>
                 <label><input type="radio" ng-model="stock.interval" value="60min" />60min</label>
                 <br />
+            </div>
                 <input type="button" ng-click="reset()" value="Reset" />
                 <input type="submit" ng-click="request(stock)" value="Get quote" />
-                <button ng-click="watch(stock)">Add stock to Watch List</button>
+                <!-- <button ng-click="watch(stock)">Add stock to Watch List</button> -->
             </form>
             <br>
             <br>

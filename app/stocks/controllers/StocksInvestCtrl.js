@@ -10,7 +10,7 @@ angular.module("StockApp")
             value: 1
         }
         // const CreditsFactory = CreditFactory.bitcoin()
-        
+
         CreditFactory.bitcoin()
             .then(
                 response => {
@@ -34,7 +34,7 @@ angular.module("StockApp")
                     console.log("current price of btc", stockReturn[0]);
 
                     // print it to the DOM with fancy pants Angular
-                    $scope.print = `Current Price of BTC = $${priceReturn[0]}`
+                    $scope.print = `${priceReturn[0]}`
 
                     // loop to get price history
                     for (let i = 0; i < stockReturn.length; i++) {
@@ -57,20 +57,22 @@ angular.module("StockApp")
                                 label: 'Price of BTC',
                                 data: btcReturn, // insert response data here 
                                 backgroundColor: [
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(255, 206, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)'
+                                    "rgba(183, 245, 245, 0.2)"  
+                                    // 'rgba(255, 99, 132, 0.2)',
+                                    // 'rgba(54, 162, 235, 0.2)',
+                                    // 'rgba(255, 206, 86, 0.2)',
+                                    // 'rgba(75, 192, 192, 0.2)',
+                                    // 'rgba(153, 102, 255, 0.2)',
+                                    // 'rgba(255, 159, 64, 0.2)'
                                 ],
                                 borderColor: [
-                                    'rgba(255,99,132,1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)'
+                                    "tomato"
+                                    // 'rgba(255,99,132,1)',
+                                    // 'rgba(54, 162, 235, 1)',
+                                    // 'rgba(255, 206, 86, 1)',
+                                    // 'rgba(75, 192, 192, 1)',
+                                    // 'rgba(153, 102, 255, 1)',
+                                    // 'rgba(255, 159, 64, 1)'
                                 ],
                                 borderWidth: 1
                             }]
