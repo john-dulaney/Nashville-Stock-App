@@ -15,15 +15,15 @@ angular.module("StockApp")
 
                 for (let key in response.data) {
                     let currentStock = response.data[key]
-                    // console.log(StocksFactory.quote(currentStock.stock))
-                    allQuoteRequests.push(StocksFactory.quote(currentStock.stock))
+                    // console.log(StocksFactory.dashQuote(currentStock.stock))
+                    allQuoteRequests.push(StocksFactory.dashQuote(currentStock.stock))
                 }
                 // This is wizard Dark Magic from the 4th realm. Thanks Steve!
                 $q.all(allQuoteRequests)
                     .then(quoteObjectArray => {
                         $scope.allQuotes = quoteObjectArray
                         console.log(quoteObjectArray)
-                        console.log(allQuoteRequests)
+                        // console.log(allQuoteRequests)
                         $scope.userEmail = AuthFactory.getUser().email
                         console.log("response.")
                     })

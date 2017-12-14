@@ -2,12 +2,11 @@
     <div ng-controller="StocksDashCtrl">
 
         <div>
-            Welcome <span style="font-weight: bold">{{ userEmail }}</span>
+            <img src="../retro.gif" height="158" width="100"> Welcome <span style="font-weight: bold">{{ userEmail }}</span><img src="../../retro.gif" height="158" width="100">
             <h3>Your Current Watched Stocks</h3>
             
-            <div ng-repeat="quoteObject in allQuotes">
-                <span style="font-weight: bold">{{quoteObject.symbol}}:</span> <span style="color:green;"> {{quoteObject.price}}</span>
-            </div>
+            <div ng-repeat="quoteObject in allQuotes" style="border: 1px, solid, tomato;">
+                <span style="font-weight: bold">{{quoteObject.symbol}}:</span> <span style="color:green;"> {{quoteObject.price}}</span></div>
 
         </div>
         <!-- {{watchedStocks.stuff}} -->

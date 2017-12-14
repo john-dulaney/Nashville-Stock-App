@@ -80,7 +80,7 @@ angular.module("StockApp")
                 }
             },
             // this GET will be used for BTC as well, once it works
-            "quote": {
+            "dashQuote": {
                 value: function (tickerSymbol) {
                     console.log("quote request sent")
                     return $http({
@@ -91,7 +91,7 @@ angular.module("StockApp")
                         // debugger
 
                         const timeSeries = response.data["Time Series (1min)"]
-
+                            //if statement here fir checking if null
                         const timeSeriesArray = Object.keys(timeSeries)
                             .map(key => {
                                 return timeSeries[key]
@@ -108,6 +108,25 @@ angular.module("StockApp")
 
                         return lastQuoteObject
                     })
+                }
+            },
+            "quote": {
+                value: function (stock) {
+                    return $http({
+                        method: "GET",
+                        url: `https://www.alphavantage.co/query?function=TIME_SERIES_${quoteRequest[0].series}&symbol=${quoteRequest[0].symbol}&interval=${quoteRequest[0].interval}&apikey=ZZ2RS5PN56S260FBx`
+                        // 2. 3-4 letters symbol = quoteRequest[0].symbol
+                    }).then(response => {   
+                            const data = response.data
+                            this.cache = Object.keys(data).map(key => {
+                                data[key].id = key
+                                console.log(data[key])
+                                return data[key]
+                            })
+                            return this.cache
+                        }
+
+                    )
                 }
             }
         })

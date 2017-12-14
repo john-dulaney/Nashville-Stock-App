@@ -31,7 +31,7 @@ angular.module("StockApp")
                     const stockReturn = []
                     const priceReturn = []
                     const amtReturn = []
-                    console.log(quoteObjectArray)
+                    // console.log(quoteObjectArray)
                     console.log(StocksFactory.cache[0])
 
                     // for in loop to get the prices
@@ -45,6 +45,7 @@ angular.module("StockApp")
                         let element = stockReturn[0][key];
                         priceReturn.push(element)
                     }
+                    console.log(quoteRequest[0])
 
                     console.log("current price of " + quoteRequest[0].symbol, stockReturn[0]);
 
