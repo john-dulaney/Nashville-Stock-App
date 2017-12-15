@@ -63,7 +63,7 @@ angular.module("StockApp")
             // Filter function for the stored stocks/ids to only get the objects uniqut to the current uid
             "show": {
                 value: function () {
-                    console.log("show request sent")
+                    console.log("Dashboard saved stocks request sent. (Firebase)")
                     const currentUserID = AuthFactory.authCache()
                     return firebase.auth().currentUser.getToken(true)
                         .then(idtoken => {
@@ -82,16 +82,14 @@ angular.module("StockApp")
             // this GET will be used for BTC as well, once it works
             "dashQuote": {
                 value: function (tickerSymbol) {
-                    console.log("quote request sent")
+                    console.log("Dashboard quote request sent. (api)")
                     return $http({
                         method: "GET",
                         url: `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${tickerSymbol}&interval=1min&apikey=ZZ2RS5PN56S260FBx`
                         // 2. 3-4 letters symbol = quoteRequest[0].symbol
                     }).then(response => {
-                        // debugger
-
                         const timeSeries = response.data["Time Series (1min)"]
-                            //if statement here fir checking if null
+                            //if statement here for checking if null
                         const timeSeriesArray = Object.keys(timeSeries)
                             .map(key => {
                                 return timeSeries[key]
@@ -112,6 +110,7 @@ angular.module("StockApp")
             },
             "quote": {
                 value: function (stock) {
+                    console.log("Manual quote request sent. (api)")
                     return $http({
                         method: "GET",
                         url: `https://www.alphavantage.co/query?function=TIME_SERIES_${quoteRequest[0].series}&symbol=${quoteRequest[0].symbol}&interval=${quoteRequest[0].interval}&apikey=ZZ2RS5PN56S260FBx`

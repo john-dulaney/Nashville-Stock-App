@@ -3,9 +3,6 @@ html {
 }
 nav>ul>li {
     display: inline;
-    padding: 25px;
-    margin: 10px;
-    background-color: tomato;
     color: white;
 }
 
@@ -16,9 +13,6 @@ nav>ul>li {
 .smallFont {
     font-size: 13px;
     font-weight: italic;
-}
-#dashQuote {
-    border: 1px solid tomato;
 }
 a {
     color: white;

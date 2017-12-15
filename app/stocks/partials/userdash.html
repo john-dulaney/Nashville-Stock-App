@@ -9,8 +9,8 @@
                 <span style="font-weight: bold">{{quoteObject.symbol}}:</span> <span style="color:green;"> {{quoteObject.price}}</span></div>
 
         </div>
-        <!-- {{watchedStocks.stuff}} -->
         <br>
+
         <label>Manually add a Symbol <input type="text" ng-model="topStock.symbol" maxlength="4"/></label>
         <button ng-click="watchUpper(topStock)" value="Add Stock to Watch List" ng-model="watchListButton">Add stock to Watch List</button>
         
@@ -50,7 +50,7 @@
             <div>{{quote}}</div>
 
             <!-- <pre>Value of form - Unsaved = {{stock | json}}</pre> -->
-            <pre>Value of form  - Saved  = {{master | json}}</pre>
+            <!-- <pre>Value of form  - Saved  = {{master | json}}</pre> -->
             <canvas id="quoteCanvas" width="400" height="400"></canvas>
         </div>
     </section>
