@@ -1,14 +1,15 @@
 <ul ng-controller="NavigationCtrl" style="list-style: none">
-        <li><a href="/#!/stocks/userdash">Home</a></li>
-        <li><a href="/#!/stocks/performers">Show Top Performers</a></li>
-        <li><a href="/#!/stocks/invest">See Bitcoin</a></li>
-        <!-- <li><span ng-include="'app/navigation/partials/search.html'"></span></li> -->
-    
-        <li class="align-right">
-            <span ng-if="isAuthenticated()">
+    <li><a href="/#!/stocks/userdash">Home</a></li>
+    <li><a href="/#!/stocks/performers">Show Top Performers</a></li>
+    <li><a href="/#!/stocks/invest">See Bitcoin</a></li>
+    <!-- <li><span ng-include="'app/navigation/partials/search.html'"></span></li> -->
+
+    <li>
+        <span ng-if="isAuthenticated()">
                 <a href="#" ng-click="logout()">Logout</a>
             </span>
-            <span ng-if="!isAuthenticated()"></span>
-        </li>
-        <li><a href="/#!/stocks/invest">Credit amount: {{ credits }}</a></li>
-    </ul>
+        <span ng-if="!isAuthenticated()"></span>
+    </li>
+    <li class="align-right">Welcome <span style="font-weight: bold">{{ userEmail }}</span></li>
+    <li class="align-right"><a href="/#!/stocks/invest">Credit amount: {{ credits }}</a></li>
+</ul>

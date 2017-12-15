@@ -8,5 +8,6 @@ angular.module("StockApp")
     .controller("NavigationCtrl", function ($scope, $location, AuthFactory) {
         $scope.isAuthenticated = () => AuthFactory.isAuthenticated();
         $scope.logout = () => AuthFactory.logout();
+        $scope.userEmail = AuthFactory.getUser().email
     }
 )

@@ -24,7 +24,7 @@ angular.module("StockApp")
                         $scope.allQuotes = quoteObjectArray
                         console.log(quoteObjectArray)
                         // console.log(allQuoteRequests)
-                        $scope.userEmail = AuthFactory.getUser().email
+                        // $scope.userEmail = AuthFactory.getUser().email
                         console.log("Response. (API, Firebase)")
                     })
 
