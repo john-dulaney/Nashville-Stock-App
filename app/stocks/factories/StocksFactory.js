@@ -86,10 +86,8 @@ angular.module("StockApp")
                     return $http({
                         method: "GET",
                         url: `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${tickerSymbol}&interval=1min&apikey=ZZ2RS5PN56S260FBx`
-                        // 2. 3-4 letters symbol = quoteRequest[0].symbol
                     }).then(response => {
                         const timeSeries = response.data["Time Series (1min)"]
-                            //if statement here for checking if null
                         const timeSeriesArray = Object.keys(timeSeries)
                             .map(key => {
                                 return timeSeries[key]

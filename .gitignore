@@ -14,3 +14,4 @@ package-lock.json
 package.json
 app.config.js
 ./app/app.config.js
+.sass-cache

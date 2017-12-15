@@ -6,7 +6,7 @@
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
     .controller("StocksDashCtrl", function ($scope, $location, StocksFactory, AuthFactory, $q) {
-        watchedStockArray = []
+        // watchedStockArray = []
 
         StocksFactory.show()
             .then(response => {
