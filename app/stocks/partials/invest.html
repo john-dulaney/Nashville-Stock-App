@@ -2,30 +2,27 @@
 
         <h1>Checkout Bitcoin</h1>
         <br>
-        <div>Current Price of BTC = <span style="font-weight: bold;">${{print}}</span></div>
+        <div>Current Price of BTC = <span style="font-weight: bold;" >${{print}}</span></div>
+        
+                <!-- token betting -->
+                <h1>Amount</h1>
+                <form name="invest__Form">
+                        <label>Select Amount of credits you wish to "invest":
+                        <input type="number" id="invest" name="input" ng-model="credits.amt" min="1" max="20" maxlength="2" required>
+                        <!-- <input type="text" id="hack" name="input" ng-model="credits.btcPrice" min="1" max="20" value="{{print}}"required> -->
+                        <p>{{print}}</p>
+                        <span>{{investAmt.value}}</span><br/>
+                        <button type="submit" ng-click="bet(credits)" value="Bet Credits!">BET</button>
+                </label>
+                        <div role="alert">
+                                <span class="error" ng-show="invest__From.input.$error.required">You must enter a number! (Minimum 1; Maximum 20)</span>
+                                <span class="error" ng-show="invest__From.input.$error.number">We need a number not letters stupid!</span>
+                        </div>
+                </form>
         <br>
         <br>
         <h1>Last Hour of Activity for BTC</h1>
-        <canvas id="BTCcanvas" width="400" height="400"></canvas>
+        <canvas id="BTCcanvas" width="400" height="400" class="light-green lighten-5"></canvas>
 
 
-
-        <!-- token betting -->
-        <h1>Amount</h1>
-        <form name="invest__Form">
-                <label>Select Amount of credits you wish to "invest":
-                <input type="number" id="invest" name="input" ng-model="investAmt.value" min="1" max="20" maxlength="2" required>
-                <button ng-click="betStock(stockAmount)">Bet Credits!</button>
-        </label>
-
-                <div role="alert">
-                        <span class="error" ng-show="invest__From.input.$error.required">You must enter a number! (Minimum 1; Maximum 20)</span>
-                        <span class="error" ng-show="invest__From.input.$error.number">We need a number not letters stupid!</span>
-                </div>
-        </form>
-        <span>Credits Committed = {{investAmt.value}}</span><br/>
-        <span>invest__Form.input.$valid = {{invest__Form.input.$valid}}</span><br/>
-        <span>invest__Form.input.$error = {{invest__Form.input.$error}}</span><br/>
-        <span>invest__Form.$valid = {{invest__Form.$valid}}</span><br/>
-        <span>invest__Form.$error.required = {{!!invest__Form.$error.required}}</span><br/>
 </div>

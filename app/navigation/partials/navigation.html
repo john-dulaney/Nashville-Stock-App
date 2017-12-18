@@ -4,9 +4,9 @@
     <li><a href="/#!/stocks/performers">FINISH THIS</a></li>
     <!-- <li><span ng-include="'app/navigation/partials/search.html'"></span></li> -->
 
-    <li>
-        <span ng-if="isAuthenticated()">
-                <a href="#" ng-click="logout()">Logout</a>
+    <li class="right">
+        <span ng-if="isAuthenticated()" class="right">
+                <a href="#" ng-click="logout()" class="right">Logout</a>
             </span>
         <span ng-if="!isAuthenticated()"></span>
     </li>

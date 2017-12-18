@@ -17,7 +17,7 @@ angular.module("StockApp")
             //                 credits = previouslyAssignedCreditValue
             //             }
             //         })
-            // }
+            // },
             
             // this GET is temporary
             "bitcoin": {
@@ -59,15 +59,15 @@ angular.module("StockApp")
                 }
             },
             "creditSave": {
-                value: function (credits) {
-                    console.log(credits)
+                value: function (credits, priceReturn) {
                     return firebase.auth().currentUser.getToken(true)
                         .then(idtoken => {
                             return $http({
                                 method: "POST",
                                 url: `https://${firebaseURL}/storedCredits/.json?auth=${idtoken}`,
                                 data: {
-                                    credit: credit.value,
+                                    BTCpriceLog: priceReturn[0],
+                                    credit: credits.amt,
                                     uid: firebase.auth().currentUser.uid
                                 }
                             }).catch(function (error) {

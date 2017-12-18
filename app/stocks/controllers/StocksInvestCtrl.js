@@ -9,7 +9,6 @@ angular.module("StockApp")
         $scope.investAmt = {
             value: 1
         }
-        // const CreditsFactory = CreditFactory.bitcoin()
 
         CreditFactory.bitcoin()
             .then(
@@ -18,6 +17,11 @@ angular.module("StockApp")
                     const stockReturn = []
                     const priceReturn = []
                     const btcReturn = []
+
+                    //Save credit amount committed and price of BTC at time of bet
+                    $scope.bet = function (credits) {
+                        CreditFactory.creditSave(credits, priceReturn)
+                    }
 
                     // for in loop to get the BTC prices
                     for (let key in CreditFactory.cache[1]) {
@@ -32,9 +36,22 @@ angular.module("StockApp")
                     }
 
                     console.log("current price of btc", stockReturn[0]);
-
+                    const btcPrice = priceReturn[0]
                     // print it to the DOM with fancy pants Angular
                     $scope.print = `${priceReturn[0]}`
+
+                    valueCheck = () => {
+                        if (priceReturn[0] >= priceReference) {
+                            // 1 US Dollar equals  0.000056 Bitcoin
+                            credits = credits.amt * (priceReturn[0] / 0.000056)
+                            console.log(credits, "you gained value since your last login")
+                        } else if (priceReturn[0] < priceReference) {
+                            credits = credits.amt * (priceReturn[0] / 0.000056)
+                            console.log(credits, "you lost money since eyour laste login idiot")
+                        } else {
+                            console.log("something went wrong")
+                        }
+                    }
 
                     // loop to get price history
                     for (let i = 0; i < stockReturn.length; i++) {
@@ -57,7 +74,7 @@ angular.module("StockApp")
                                 label: 'Price of BTC',
                                 data: btcReturn, // insert response data here 
                                 backgroundColor: [
-                                    "rgba(183, 245, 245, 0.2)"  
+                                    "tomato"
                                     // 'rgba(255, 99, 132, 0.2)',
                                     // 'rgba(54, 162, 235, 0.2)',
                                     // 'rgba(255, 206, 86, 0.2)',

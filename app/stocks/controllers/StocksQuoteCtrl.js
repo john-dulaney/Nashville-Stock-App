@@ -11,12 +11,11 @@ angular.module("StockApp")
         //form functions, save calls, some empty array/objects
         quoteRequest = []
         $scope.master = {}
-        // $scope.watch = function (stock) {
-        //     StocksFactory.save(stock)
-        // }
+        $scope.watch = function (stock) {
+            StocksFactory.save(stock)
+        }
         $scope.watchUpper = function (topStock) {
             StocksFactory.save(topStock)
-            .then()
         }
 
         // Request stock info from api

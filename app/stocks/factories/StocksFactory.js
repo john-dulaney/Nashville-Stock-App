@@ -33,9 +33,8 @@ angular.module("StockApp")
             },
             // saves stock symbol and uid into FB
             "save": {
-                value: function (stock, topStock) {
-                    console.log(stock)
-                    // console.log(topStock)
+                value: function (stock, topStock)  {
+                    console.log(stock) 
                     return firebase.auth().currentUser.getToken(true)
                         .then(idtoken => {
                             return $http({
@@ -113,7 +112,7 @@ angular.module("StockApp")
                         method: "GET",
                         url: `https://www.alphavantage.co/query?function=TIME_SERIES_${quoteRequest[0].series}&symbol=${quoteRequest[0].symbol}&interval=${quoteRequest[0].interval}&apikey=ZZ2RS5PN56S260FBx`
                         // 2. 3-4 letters symbol = quoteRequest[0].symbol
-                    }).then(response => {   
+                    }).then(response => {
                             const data = response.data
                             this.cache = Object.keys(data).map(key => {
                                 data[key].id = key
