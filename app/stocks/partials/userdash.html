@@ -1,14 +1,13 @@
-<div>
     <div ng-controller="StocksDashCtrl" class="container">
 
-        <h3 class="center-align">Watch out, Mom. Badass Investors Only in This Zone!</h3>
+        <!-- <h3 class="center-align">Watch out, Mom. Badass Investors Only in This Zone!</h3> -->
         <div class="row">
 
             <div class="col s4 center-align">
                 <img src="../giphy.gif" height="158" width="100">
             </div>
             <div class="col s4 center-align">
-                <h5>Your Current Watched Stocks</h5>
+                <h5>Your Watched Stocks</h5>
                 <li ng-repeat="quoteObject in allQuotes">
                     <span style="font-weight: bold"> {{quoteObject.symbol}}:</span>
                     <span class="green-text text-darken-2">$ {{quoteObject.price}}</span></li>
@@ -20,72 +19,11 @@
         </div>
         <form action="" class="section">
             <div class="input-field col s6 section">
-                <label class="section">Manually add a Symbol <input type="text" ng-model="topStock.symbol" class="section" maxlength="4"/></label>
+                <label class="section">Manually add a Symbol </label><input type="text" ng-model="topStock.symbol" class="section col s6" maxlength="4"/>
             </div>
             <br>
-            <br>
-            <br>
-            <br>
-            <br>
-                <button novalidate ng-click="watchUpper(topStock)" value="Add Stock to Watch List" ng-model="watchListButton"  class="section">Add stock to Watch List</button>
+            <button novalidate ng-click="watchUpper(topStock)" value="Add Stock to Watch List" ng-model="watchListButton" class="section">Add stock to Watch List</button>
 
         </form>
 
     </div>
-
-    <section class="section">
-        <div ng-controller="StocksQuoteCtrl" class="section">
-
-            <form novalidate class="quote__Form">
-                <label>Get a Quote: <span class="smallFont">(ex: Microsoft -> MSFT)</span> <input type="text" class="input-field col s6" ng-model="stock.symbol" maxlength="4"/></label>
-                <div class="smallFont section"> Get a full list and potentially make the desire for using this site useless <a href="https://www.nyse.com/listings_directory/stock">here.</a></div>
-                <div>
-                    <div class="input-field col s12 section">
-                        <select>
-                                  <option value="" disabled selected>Choose your option</option>
-                                  <option ng-model="stock.series" value="intraday">intraday</option>
-                                  <option ng-model="stock.series" value="daily">daily</option>
-                                  <option ng-model="stock.series" value="weekly">weekly</option>
-                                  <option ng-model="stock.series" value="monthly">monthly</option>
-                        </select>
-                        <label>Select a time series:</label>
-                    </div>
-                    <div class="input-field col s12 section">
-                        <select>
-                                  <option value="" disabled selected>Choose your option</option>
-                                  <option ng-model="stock.interval" value="1min">1min</option>
-                                  <option ng-model="stock.interval" value="5min">5min</option>
-                                  <option ng-model="stock.interval" value="15min">15min</option>
-                                  <option ng-model="stock.interval" value="30min">30min</option>
-                                  <option ng-model="stock.interval" value="60min">60min</option>
-                        </select>
-                        <label>Select a time interval:</label>
-                    </div>
-                </div>
-                <input type="button" ng-click="reset()" value="Reset" />
-                <input type="submit" ng-click="request(stock)" value="Get quote" />
-                <!-- <button ng-click="watch(stock)">Add stock to Watch List</button> -->
-            </form>
-
-            <!-- Select a time series:
-                    (1) intraday, (2) daily, (3) weekly, and (4) monthly.
-                    <label><input type="radio" ng-model="stock.series" value="intraday"/>intraday</label>
-                    <label><input type="radio" ng-model="stock.series" value="daily"/>daily</label>
-                    <label><input type="radio" ng-model="stock.series" value="weekly"/>weekly</label>
-                    <label><input type="radio" ng-model="stock.series" value="monthly"/>monthly</label>
-                    <br />  -->
-            <!-- Select a time interval:
-                    1min, 5min, 15min, 30min, 60min
-                    <label><input type="radio" ng-model="stock.interval" value="1min"/>1min</label>
-                    <label><input type="radio" ng-model="stock.interval" value="5min"/>5min</label>
-                    <label><input type="radio" ng-model="stock.interval" value="15min"/>15min</label>
-                    <label><input type="radio" ng-model="stock.interval" value="30min"/>30min</label>
-                    <label><input type="radio" ng-model="stock.interval" value="60min"/>60min</label> -->
-
-            <!-- <pre>Value of form - Unsaved = {{stock | json}}</pre> -->
-            <!-- <pre>Value of form  - Saved  = {{master | json}}</pre> -->
-            <div>{{quote}}</div>
-            <canvas id="quoteCanvas" width="400" height="400"></canvas>
-        </div>
-    </section>
-</div>

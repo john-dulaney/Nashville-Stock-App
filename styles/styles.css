@@ -15,28 +15,28 @@ nav>ul>li {
     font-weight: italic;
 }
 a {
-    color: #BB1616;
+    color: white;
     
 }
 a:visited {
     text-decoration: none;
-    color: #BB1616;
+    color: white;
 }
 
 a:hover {
     text-decoration: none;
-    color: #BB1616;
+    color: white;
 }
 
 a:focus {
     text-decoration: none;
-    color: #BB1616;
+    color: white;
 }
 
 a:hover,
 a:active {
     text-decoration: none;
-    color: #BB1616;
+    color: white;
 }
 
 #BTCcanvas {

@@ -79,7 +79,7 @@ angular.module("StockApp")
                                 url: `https://${firebaseURL}/storedCredits/.json?auth=${idtoken}`,
                                 data: {
                                     BTCpriceLog: priceReturn[0],
-                                    heldCredit: this - credits.amt,
+                                    heldCredit: 100 - credits.amt,
                                     investedCredit: credits.amt,
                                     uid: firebase.auth().currentUser.uid
                                 }

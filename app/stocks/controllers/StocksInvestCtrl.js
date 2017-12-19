@@ -14,7 +14,7 @@ angular.module("StockApp")
             .then(response => {
                 
                 // $scope.currentUser = response[0].id
-                console.log(response[0].id)
+                // console.log(response[0].id)
                 // CreditFactory.creditPut($scope.currentUser)
             })
             
@@ -88,7 +88,7 @@ angular.module("StockApp")
                                 label: 'Price of BTC',
                                 data: btcReturn, // insert response data here 
                                 backgroundColor: [
-                                    "tomato"
+                                    "lightGreen"
                                     // 'rgba(255, 99, 132, 0.2)',
                                     // 'rgba(54, 162, 235, 0.2)',
                                     // 'rgba(255, 206, 86, 0.2)',
@@ -97,7 +97,7 @@ angular.module("StockApp")
                                     // 'rgba(255, 159, 64, 0.2)'
                                 ],
                                 borderColor: [
-                                    "tomato"
+                                    "black"
                                     // 'rgba(255,99,132,1)',
                                     // 'rgba(54, 162, 235, 1)',
                                     // 'rgba(255, 206, 86, 1)',
@@ -109,6 +109,14 @@ angular.module("StockApp")
                             }]
                         },
                         options: {
+                            ayout: {
+                                padding: {
+                                    left: 50,
+                                    right: 50,
+                                    top: 50,
+                                    bottom: 50
+                                }
+                            },
                             scales: {
                                 yAxes: [{
                                     ticks: {

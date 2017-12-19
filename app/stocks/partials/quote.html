@@ -1,0 +1,31 @@
+
+    <section class="section">
+        <div ng-controller="StocksQuoteCtrl" class="section">
+
+            <!-- <button ng-click="watch(stock)">Add stock to Watch List</button>  -->
+            <form novalidate class="quote__Form">
+                <label>Get a Quote: <span class="smallFont">(ex: Microsoft -> MSFT)</span> <input type="text" class="input-field col s6" ng-model="stock.symbol" maxlength="4"/></label>
+                <div class="smallFont section"> Get a full list and potentially make the desire for using this site useless <a href="https://www.nyse.com/listings_directory/stock">here.</a></div>
+                Select a time series:
+                <!-- (1) intraday, (2) daily, (3) weekly, and (4) monthly. -->
+                <label><input type="radio" ng-model="stock.series" value="intraday"/>intraday</label>
+                <label><input type="radio" ng-model="stock.series" value="daily"/>daily</label>
+                <label><input type="radio" ng-model="stock.series" value="weekly"/>weekly</label>
+                <label><input type="radio" ng-model="stock.series" value="monthly"/>monthly</label>
+                <br /> Select a time interval:
+                <!-- 1min, 5min, 15min, 30min, 60min -->
+                <label><input type="radio" ng-model="stock.interval" value="1min"/>1min</label>
+                <label><input type="radio" ng-model="stock.interval" value="5min"/>5min</label>
+                <label><input type="radio" ng-model="stock.interval" value="15min"/>15min</label>
+                <label><input type="radio" ng-model="stock.interval" value="30min"/>30min</label>
+                <label><input type="radio" ng-model="stock.interval" value="60min"/>60min</label>
+                <input type="button" ng-click="reset()" value="Reset" />
+                <input type="submit" ng-click="request(stock)" value="Get quote" />
+            </form>
+
+            <!-- <pre>Value of form - Unsaved = {{stock | json}}</pre> -->
+            <!-- <pre>Value of form  - Saved  = {{master | json}}</pre> -->
+            <div>{{quote}}</div>
+            <canvas id="quoteCanvas" width="400" height="400"></canvas>
+        </div>
+    </section>

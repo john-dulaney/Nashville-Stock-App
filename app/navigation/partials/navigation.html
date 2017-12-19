@@ -1,7 +1,7 @@
 <ul ng-controller="NavigationCtrl" class="nav-wrapper navbar-fixed green darken-4 white-text">
     <li><a href="/#!/stocks/userdash" class="active">Home</a></li>
-    <li><a href="/#!/stocks/invest">See Bitcoin</a></li>
-    <li><a href="/#!/stocks/performers">FINISH THIS</a></li>
+    <li><a href="/#!/stocks/quote">Get a Quote</a></li>
+    <li><a href="/#!/stocks/invest">Bitcoin</a></li>
     <!-- <li><span ng-include="'app/navigation/partials/search.html'"></span></li> -->
 
     <li class="right">
@@ -10,6 +10,7 @@
             </span>
         <span ng-if="!isAuthenticated()"></span>
     </li>
+    
     <li class="right">Welcome <span style="font-weight: bold">{{ userEmail }}</span></li>
     <li class="right"><a href="/#!/stocks/invest">Credit amount: {{ credits }}</a></li>
 </ul>
