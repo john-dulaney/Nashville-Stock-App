@@ -69,9 +69,7 @@ angular.module("StockApp")
             registerWithEmail: {
                 value: user =>
                     firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-                    .then(
-                        CreditFactory.set()
-                    )
+                    
             }
         })
     })

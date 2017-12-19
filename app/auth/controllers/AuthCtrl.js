@@ -5,13 +5,13 @@
 // imports
 angular.module("StockApp")
     // naming this controller, AuthCtrl, and passing in required methods/factory
-    .controller("AuthCtrl", function ($scope, $location, AuthFactory) {
+    .controller("AuthCtrl", function ($scope, $location, AuthFactory, CreditFactory) {
         // setting .auth call from fb into an empty object
         $scope.auth = {}
 
         //login function, passing in credentials
         $scope.logMeIn = function (credentials) {
-            
+
             //calling AuthFactory.authenticate function. 
             AuthFactory.authenticate(credentials).then(function (didLogin) {
                 //Places credentials from email/pw into objects ready to be sent to firebase.
@@ -33,13 +33,15 @@ angular.module("StockApp")
         $scope.registerUser = function (registerNewUser) {
 
             //runs  function that stores a new user in firebase
-            AuthFactory.registerWithEmail(registerNewUser).then(function (didRegister) {
-                // runs login function so once user is registered, they are sent along.
-                logMeIn(registerNewUser)
-            })
+            AuthFactory.registerWithEmail(registerNewUser)
+                .then(function (didRegister) {
+                    CreditFactory.creditSave()
+                    // runs login function so once user is registered, they are sent along.
+                    AuthFactory.logMeIn(registerNewUser)
+                })
         }
 
 
-        
+
 
     })

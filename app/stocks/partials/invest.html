@@ -1,4 +1,3 @@
-<div ng-controller="StocksInvestCtrl">
 
         <h1>Checkout Bitcoin</h1>
         <br>
@@ -9,9 +8,6 @@
                 <form name="invest__Form">
                         <label>Select Amount of credits you wish to "invest":
                         <input type="number" id="invest" name="input" ng-model="credits.amt" min="1" max="20" maxlength="2" required>
-                        <!-- <input type="text" id="hack" name="input" ng-model="credits.btcPrice" min="1" max="20" value="{{print}}"required> -->
-                        <p>{{print}}</p>
-                        <span>{{investAmt.value}}</span><br/>
                         <button type="submit" ng-click="bet(credits)" value="Bet Credits!">BET</button>
                 </label>
                         <div role="alert">
@@ -23,6 +19,3 @@
         <br>
         <h1>Last Hour of Activity for BTC</h1>
         <canvas id="BTCcanvas" width="400" height="400" class="light-green lighten-5"></canvas>
-
-
-</div>

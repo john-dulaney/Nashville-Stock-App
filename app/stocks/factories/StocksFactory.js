@@ -78,7 +78,6 @@ angular.module("StockApp")
                         })
                 }
             },
-            // this GET will be used for BTC as well, once it works
             "dashQuote": {
                 value: function (tickerSymbol) {
                     console.log("Dashboard quote request sent. (api)")

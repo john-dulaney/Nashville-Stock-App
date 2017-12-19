@@ -10,18 +10,30 @@ angular.module("StockApp")
             value: 1
         }
 
+        CreditFactory.creditRequest()
+            .then(response => {
+                
+                // $scope.currentUser = response[0].id
+                console.log(response[0].id)
+                // CreditFactory.creditPut($scope.currentUser)
+            })
+            
+
+            
+
         CreditFactory.bitcoin()
-            .then(
-                response => {
+            .then(response => {
                     // empty arrays for our JSON return of a gaggle of objects
                     const stockReturn = []
                     const priceReturn = []
                     const btcReturn = []
 
+
                     //Save credit amount committed and price of BTC at time of bet
                     $scope.bet = function (credits) {
-                        CreditFactory.creditSave(credits, priceReturn)
+                        CreditFactory.creditPut(credits, priceReturn)
                     }
+
 
                     // for in loop to get the BTC prices
                     for (let key in CreditFactory.cache[1]) {
@@ -42,12 +54,14 @@ angular.module("StockApp")
 
                     valueCheck = () => {
                         if (priceReturn[0] >= priceReference) {
+
+
                             // 1 US Dollar equals  0.000056 Bitcoin
                             credits = credits.amt * (priceReturn[0] / 0.000056)
                             console.log(credits, "you gained value since your last login")
                         } else if (priceReturn[0] < priceReference) {
                             credits = credits.amt * (priceReturn[0] / 0.000056)
-                            console.log(credits, "you lost money since eyour laste login idiot")
+                            console.log(credits, "you lost money since your last login idiot")
                         } else {
                             console.log("something went wrong")
                         }

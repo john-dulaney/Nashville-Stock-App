@@ -8,17 +8,6 @@ angular.module("StockApp")
                 value: null,
                 writable: true
             },
-            // "set": {
-            //     value: this.creditRequest()
-            //         .then(assignCredit => {
-            //             if (user === newUser) {
-            //                 credits = 100
-            //             } else {
-            //                 credits = previouslyAssignedCreditValue
-            //             }
-            //         })
-            // },
-            
             // this GET is temporary
             "bitcoin": {
                 value: function () {
@@ -42,39 +31,76 @@ angular.module("StockApp")
                         .then(idtoken => {
                             return $http({
                                     method: "GET",
-                                    url: `https://${firebaseURL}/storedCredits/.json?auth=${idtoken}&orderBy="uid"&equalTo="${currentUserID.uid}"`
+                                    url: `https://${firebaseURL}/storedCredits/.json?auth=${idtoken}`
+                                    //&orderBy="uid"&equalTo="${currentUserID.uid}"
                                 }).then(response => {
+                                    console.log(response)
                                     const data = response.data
                                     this.cache = Object.keys(data).map(key => {
                                         data[key].id = key
-                                        console.log(data[key])
+                                        // console.log(data[key])
                                         return data[key]
                                     })
                                 })
                                 .catch(function (error) {
                                     console.log("Error Fetching Credit Data.")
                                 })
-                            return this.cache
-                        })
+                                // console.log(this.cache)
+                                return this.cache
+                            })
                 }
-            },
+            },   
             "creditSave": {
-                value: function (credits, priceReturn) {
+                value: function () {
                     return firebase.auth().currentUser.getToken(true)
                         .then(idtoken => {
                             return $http({
                                 method: "POST",
                                 url: `https://${firebaseURL}/storedCredits/.json?auth=${idtoken}`,
                                 data: {
-                                    BTCpriceLog: priceReturn[0],
-                                    credit: credits.amt,
+                                    BTCpriceLog: 0,
+                                    heldCredit: 100, //credits.amt,
+                                    investedCredit: 0,
                                     uid: firebase.auth().currentUser.uid
                                 }
                             }).catch(function (error) {
-                                window.alert("Error Saving Credits.")
+                                    window.alert("Error Saving Credits.")
+                            })
+                        })
+                }
+            },
+            "creditPut": {
+                value: function (credits, priceReturn) {
+                    return firebase.auth().currentUser.getToken(true)
+                    .then(idtoken => {
+                        debugger
+                        return $http({
+                                method: "PUT",
+                                url: `https://${firebaseURL}/storedCredits/.json?auth=${idtoken}`,
+                                data: {
+                                    BTCpriceLog: priceReturn[0],
+                                    heldCredit: this - credits.amt,
+                                    investedCredit: credits.amt,
+                                    uid: firebase.auth().currentUser.uid
+                                }
+                            }).catch(function (error) {
+                                if (credits.amt === null) {
+                                    window.alert("Error Saving Credits.")
+
+                                }
                             })
                         })
                 }
             }
+            // "set": {
+            //     value: this.creditRequest()
+            //         .then(assignCredit => {
+            //             if (user === newUser) {
+            //                 credits = 100
+            //             } else {
+            //                 credits = previouslyAssignedCreditValue
+            //             }
+            //         })
+            // },
         })
     })
