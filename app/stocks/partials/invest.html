@@ -1,8 +1,14 @@
 <h5>Checkout Bitcoin</h5>
 <br>
 <div>Current Price of BTC = <span style="font-weight: bold;">${{print}}</span></div>
+<div>SteveBucks Held = <span style="font-weight: bold;">{{currentCredit}}</span></div>
+<div>SteveBucks Invested = <span style="font-weight: bold;">{{currentInvestedCredit}}</span></div>
+<div>SteveBucks value in USD = <span style="font-weight: bold;">{{investedValueUSD}}</span></div>
+<div>SteveBucks value in BTC = <span style="font-weight: bold;">{{investedValueBTC}}</span></div>
 <!-- token betting -->
 <form name="invest__Form">
+                    <pre>Value of form  - Saved  = {{credits.amt}}</pre>
+
         <label>Select Amount of credits you wish to "invest":
                         <input type="number" id="invest" name="input" ng-model="credits.amt" min="1" max="20" maxlength="2" required>
                         <button type="submit" ng-click="bet(credits)" value="Bet Credits!">BET</button>

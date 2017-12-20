@@ -12,14 +12,33 @@ angular.module("StockApp")
 
         CreditFactory.creditRequest()
             .then(response => {
-                
-                // $scope.currentUser = response[0].id
-                // console.log(response[0].id)
-                // CreditFactory.creditPut($scope.currentUser)
-            })
-            
+                debugger
+                $scope.currentUser = response[0].id
+                $scope.currentCredit = response[0].heldCredit
+                $scope.currentInvestedCredit = response[0].investedCredit
+                console.log("Current user ID: ", response[0])
+                CreditFactory.bitcoin()
 
-            
+
+                // valueCheck = () => {
+                //     const theSavedPrice = response[0].BTCpriceLog                    // the saved Bitcoin Value from firebase
+                //     const currentPrice = priceReturn[0]                              // the current Bitcoin value
+
+                //     if (currentPrice >= theSavedPrice) {
+                //         // 1 US Dollar equals 0.000055 Bitcoin
+                //         credits = credits.amt * 0.000055
+                //         console.log(credits, "you gained value since your last login")
+                //     } else if (priceReturn[0] < priceReference) {
+                //         credits = credits.amt * 0.000055
+                //         console.log(credits, "you lost money since your last login idiot")
+                //     } else {
+                //         console.log("something went wrong")
+                //     }
+                // }
+            })
+
+
+
 
         CreditFactory.bitcoin()
             .then(response => {
@@ -28,10 +47,13 @@ angular.module("StockApp")
                     const priceReturn = []
                     const btcReturn = []
 
-
                     //Save credit amount committed and price of BTC at time of bet
                     $scope.bet = function (credits) {
-                        CreditFactory.creditPut(credits, priceReturn)
+                        // debugger
+                        const totalInvestment = $scope.currentInvestedCredit + credits.amt
+
+                        CreditFactory.creditPut(totalInvestment, priceReturn, $scope.currentUser)
+                        // $scope.currentCredit - ($scope.currentInvestedCredit + firebaseVal)
                     }
 
 
@@ -49,23 +71,9 @@ angular.module("StockApp")
 
                     console.log("current price of btc", stockReturn[0]);
                     const btcPrice = priceReturn[0]
+
                     // print it to the DOM with fancy pants Angular
                     $scope.print = `${priceReturn[0]}`
-
-                    valueCheck = () => {
-                        if (priceReturn[0] >= priceReference) {
-
-
-                            // 1 US Dollar equals  0.000056 Bitcoin
-                            credits = credits.amt * (priceReturn[0] / 0.000056)
-                            console.log(credits, "you gained value since your last login")
-                        } else if (priceReturn[0] < priceReference) {
-                            credits = credits.amt * (priceReturn[0] / 0.000056)
-                            console.log(credits, "you lost money since your last login idiot")
-                        } else {
-                            console.log("something went wrong")
-                        }
-                    }
 
                     // loop to get price history
                     for (let i = 0; i < stockReturn.length; i++) {
@@ -111,10 +119,10 @@ angular.module("StockApp")
                         options: {
                             ayout: {
                                 padding: {
-                                    left: 50,
-                                    right: 50,
-                                    top: 50,
-                                    bottom: 50
+                                    left: 60,
+                                    right: 60,
+                                    top: 60,
+                                    bottom: 60
                                 }
                             },
                             scales: {

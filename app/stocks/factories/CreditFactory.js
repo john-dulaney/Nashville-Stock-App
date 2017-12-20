@@ -34,19 +34,19 @@ angular.module("StockApp")
                                     url: `https://${firebaseURL}/storedCredits/.json?auth=${idtoken}`
                                     //&orderBy="uid"&equalTo="${currentUserID.uid}"
                                 }).then(response => {
-                                    console.log(response)
+                                    // console.log(response)
                                     const data = response.data
                                     this.cache = Object.keys(data).map(key => {
                                         data[key].id = key
                                         // console.log(data[key])
                                         return data[key]
                                     })
+                                    // console.log(this.cache)
+                                    return this.cache 
                                 })
                                 .catch(function (error) {
                                     console.log("Error Fetching Credit Data.")
                                 })
-                                // console.log(this.cache)
-                                return this.cache
                             })
                 }
             },   
@@ -70,17 +70,17 @@ angular.module("StockApp")
                 }
             },
             "creditPut": {
-                value: function (credits, priceReturn) {
+                value: function (totalInvestment, priceReturn, id) {
                     return firebase.auth().currentUser.getToken(true)
                     .then(idtoken => {
-                        debugger
+                        console.log("Credit Committed")
                         return $http({
                                 method: "PUT",
-                                url: `https://${firebaseURL}/storedCredits/.json?auth=${idtoken}`,
+                                url: `https://${firebaseURL}/storedCredits/${id}.json?auth=${idtoken}`,
                                 data: {
                                     BTCpriceLog: priceReturn[0],
-                                    heldCredit: 100 - credits.amt,
-                                    investedCredit: credits.amt,
+                                    heldCredit: 100 - totalInvestment,
+                                    investedCredit: totalInvestment,
                                     uid: firebase.auth().currentUser.uid
                                 }
                             }).catch(function (error) {
