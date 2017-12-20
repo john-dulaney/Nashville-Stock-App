@@ -1,31 +1,47 @@
+<section class="section">
+    <div ng-controller="StocksQuoteCtrl" class="section">
 
-    <section class="section">
-        <div ng-controller="StocksQuoteCtrl" class="section">
-
-            <!-- <button ng-click="watch(stock)">Add stock to Watch List</button>  -->
-            <form novalidate class="quote__Form">
-                <label>Get a Quote: <span class="smallFont">(ex: Microsoft -> MSFT)</span> <input type="text" class="input-field col s6" ng-model="stock.symbol" maxlength="4"/></label>
-                <div class="smallFont section"> Get a full list and potentially make the desire for using this site useless <a href="https://www.nyse.com/listings_directory/stock">here.</a></div>
+        <!-- <button ng-click="watch(stock)">Add stock to Watch List</button>  -->
+        <form novalidate class="quote__Form black-text">
+            <label class="black-text">Get a Quote: <span class="smallFont">(ex: Microsoft -> MSFT)</span> <input type="text" class="input-field col s6" ng-model="stock.symbol" maxlength="4"/></label>
+            <div class="smallFont section"> Get a full list and potentially make the desire for using this site useless <a href="https://www.nyse.com/listings_directory/stock">here.</a></div>
+            <section class="black-text">
                 Select a time series:
                 <!-- (1) intraday, (2) daily, (3) weekly, and (4) monthly. -->
-                <label><input type="radio" ng-model="stock.series" value="intraday"/>intraday</label>
-                <label><input type="radio" ng-model="stock.series" value="daily"/>daily</label>
-                <label><input type="radio" ng-model="stock.series" value="weekly"/>weekly</label>
-                <label><input type="radio" ng-model="stock.series" value="monthly"/>monthly</label>
+                <input class="with-gap" name="timeSeries" type="radio" id="intraday" ng-model="stock.series" value="intraday" />
+                <label for="intraday" class="black-text">intraday</label>
+                <input class="with-gap" name="timeSeries" type="radio" id="daily" ng-model="stock.series" value="daily" />
+                <label for="daily" class="black-text">daily</label>
+                <input class="with-gap" name="timeSeries" type="radio" id="weekly" ng-model="stock.series" value="weekly" />
+                <label for="weekly" class="black-text">weekly</label>
+                <input class="with-gap" name="timeSeries" type="radio" id="monthly" ng-model="stock.series" value="monthly" />
+                <label for="monthly" class="black-text">monthly</label>
+            </section>
+            <section class="black-text">
                 <br /> Select a time interval:
                 <!-- 1min, 5min, 15min, 30min, 60min -->
-                <label><input type="radio" ng-model="stock.interval" value="1min"/>1min</label>
-                <label><input type="radio" ng-model="stock.interval" value="5min"/>5min</label>
-                <label><input type="radio" ng-model="stock.interval" value="15min"/>15min</label>
-                <label><input type="radio" ng-model="stock.interval" value="30min"/>30min</label>
-                <label><input type="radio" ng-model="stock.interval" value="60min"/>60min</label>
-                <input type="button" ng-click="reset()" value="Reset" />
-                <input type="submit" ng-click="request(stock)" value="Get quote" />
-            </form>
+                <input class="with-gap" name="timeInterval" type="radio" id="1min" ng-model="stock.interval" value="1min" />
+                <label for="1min" class="black-text">1min</label>
+                <input class="with-gap" name="timeInterval" type="radio" id="5min" ng-model="stock.interval" value="5min" />
+                <label for="5min" class="black-text">5min</label>
+                <input class="with-gap" name="timeInterval" type="radio" id="15min" ng-model="stock.interval" value="15min" />
+                <label for="15min" class="black-text">15min</label>
+                <input class="with-gap" name="timeInterval" type="radio" id="30min" ng-model="stock.interval" value="30min" />
+                <label for="30min" class="black-text">30min</label>
+                <input class="with-gap" name="timeInterval" type="radio" id="60min" ng-model="stock.interval" value="60min" />
+                <label for="60min" class="black-text">60min</label>
+                <p>
+                    <input type="button" ng-click="reset()" value="Reset" />
+                    <input type="submit" ng-click="request(stock)" value="Get quote" />
+                </p>
+            </section>
+        </form>
 
-            <!-- <pre>Value of form - Unsaved = {{stock | json}}</pre> -->
-            <!-- <pre>Value of form  - Saved  = {{master | json}}</pre> -->
-            <div>{{quote}}</div>
-            <canvas id="quoteCanvas" width="400" height="400"></canvas>
-        </div>
-    </section>
+
+
+        <!-- <pre>Value of form - Unsaved = {{stock | json}}</pre> -->
+        <!-- <pre>Value of form  - Saved  = {{master | json}}</pre> -->
+        <div>{{quote}}</div>
+        <canvas id="quoteCanvas" width="400" height="400"></canvas>
+    </div>
+</section>

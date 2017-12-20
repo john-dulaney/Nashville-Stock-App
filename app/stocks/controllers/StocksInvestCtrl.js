@@ -12,29 +12,15 @@ angular.module("StockApp")
 
         CreditFactory.creditRequest()
             .then(response => {
-                debugger
+                // console.log(response)
+                // debugger
                 $scope.currentUser = response[0].id
                 $scope.currentCredit = response[0].heldCredit
                 $scope.currentInvestedCredit = response[0].investedCredit
+                $scope.investedValueUSD = response[0].investedCredit
+                $scope.investedValueBTC = $scope.currentInvestedCredit * 0.000060
                 console.log("Current user ID: ", response[0])
                 CreditFactory.bitcoin()
-
-
-                // valueCheck = () => {
-                //     const theSavedPrice = response[0].BTCpriceLog                    // the saved Bitcoin Value from firebase
-                //     const currentPrice = priceReturn[0]                              // the current Bitcoin value
-
-                //     if (currentPrice >= theSavedPrice) {
-                //         // 1 US Dollar equals 0.000055 Bitcoin
-                //         credits = credits.amt * 0.000055
-                //         console.log(credits, "you gained value since your last login")
-                //     } else if (priceReturn[0] < priceReference) {
-                //         credits = credits.amt * 0.000055
-                //         console.log(credits, "you lost money since your last login idiot")
-                //     } else {
-                //         console.log("something went wrong")
-                //     }
-                // }
             })
 
 
@@ -53,7 +39,6 @@ angular.module("StockApp")
                         const totalInvestment = $scope.currentInvestedCredit + credits.amt
 
                         CreditFactory.creditPut(totalInvestment, priceReturn, $scope.currentUser)
-                        // $scope.currentCredit - ($scope.currentInvestedCredit + firebaseVal)
                     }
 
 
@@ -137,3 +122,22 @@ angular.module("StockApp")
                 } // end of response
             )
     }) // end of module
+
+
+
+
+    // valueCheck = () => {
+                //     const theSavedPrice = response[0].BTCpriceLog                    // the saved Bitcoin Value from firebase
+                //     const currentPrice = priceReturn[0]                              // the current Bitcoin value
+
+                //     if (currentPrice >= theSavedPrice) {
+                //         // 1 US Dollar equals 0.000055 Bitcoin
+                //         credits = credits.amt * 0.000055
+                //         console.log(credits, "you gained value since your last login")
+                //     } else if (priceReturn[0] < priceReference) {
+                //         credits = credits.amt * 0.000055
+                //         console.log(credits, "you lost money since your last login idiot")
+                //     } else {
+                //         console.log("something went wrong")
+                //     }
+                // }

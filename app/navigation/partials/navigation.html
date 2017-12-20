@@ -10,7 +10,6 @@
             </span>
         <span ng-if="!isAuthenticated()"></span>
     </li>
-    
-    <li class="right">Welcome <span style="font-weight: bold">{{ userEmail }}</span></li>
-    <li class="right"><a href="/#!/stocks/invest">SteveBucks amount: {{currentCredit}}</a></li>
+    <li ng-controller="AuthCtrl" class="right">Welcome {{ userEmail }}</li>
+    <li ng-controller="StocksInvestCtrl" class="right"><a href="/#!/stocks/invest">SteveBucks amount: {{ currentCredit }}</a></li>
 </ul>
