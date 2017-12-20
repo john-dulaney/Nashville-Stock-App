@@ -78,6 +78,7 @@ angular.module("StockApp")
                         })
                 }
             },
+            // zips up the API Get with the firebase GET. dont understand it.
             "dashQuote": {
                 value: function (tickerSymbol) {
                     console.log("Dashboard quote request sent. (api)")
@@ -104,6 +105,7 @@ angular.module("StockApp")
                     })
                 }
             },
+            // Hacky quote GET function i had before it got Refactored.
             "quote": {
                 value: function (stock) {
                     console.log("Manual quote request sent. (api)")

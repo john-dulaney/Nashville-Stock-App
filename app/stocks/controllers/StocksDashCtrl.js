@@ -6,16 +6,17 @@
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
     .controller("StocksDashCtrl", function ($scope, $location, StocksFactory, AuthFactory, $q) {
-        // watchedStockArray = []
 
+        // Call a GET factory function to get the User's stored stocks 
         StocksFactory.show()
             .then(response => {
-
+                // empty arrays for later use
                 const allQuoteRequests = []
 
+                // For in loop on our returned object of objects
                 for (let key in response.data) {
                     let currentStock = response.data[key]
-                    // console.log(StocksFactory.dashQuote(currentStock.stock))
+                    // push a factory functions results into the array?
                     allQuoteRequests.push(StocksFactory.dashQuote(currentStock.stock))
                 }
                 // This is wizard Dark Magic from the 4th realm. Thanks Steve!
@@ -23,8 +24,6 @@ angular.module("StockApp")
                     .then(quoteObjectArray => {
                         $scope.allQuotes = quoteObjectArray
                         console.log(quoteObjectArray)
-                        // console.log(allQuoteRequests)
-                        // $scope.userEmail = AuthFactory.getUser().email
                         console.log("Response. (API, Firebase)")
                     })
 

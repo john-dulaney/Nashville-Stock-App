@@ -24,6 +24,7 @@ angular.module("StockApp")
                     })
                 }
             },
+            // Request User's credit info from Firebase
             "creditRequest": {
                 value: function () {
                     const currentUserID = AuthFactory.authCache()
@@ -42,14 +43,15 @@ angular.module("StockApp")
                                         return data[key]
                                     })
                                     // console.log(this.cache)
-                                    return this.cache 
+                                    return this.cache
                                 })
                                 .catch(function (error) {
                                     console.log("Error Fetching Credit Data.")
                                 })
-                            })
+                        })
                 }
-            },   
+            },
+            // Credit POST function for new users, simply creates their profile and awards them 100 credits.
             "creditSave": {
                 value: function () {
                     return firebase.auth().currentUser.getToken(true)
@@ -64,17 +66,18 @@ angular.module("StockApp")
                                     uid: firebase.auth().currentUser.uid
                                 }
                             }).catch(function (error) {
-                                    window.alert("Error Saving Credits.")
+                                window.alert("Error Saving Credits.")
                             })
                         })
                 }
             },
+            // Credit update method for each time the user bets credits. actively updates firebase
             "creditPut": {
                 value: function (totalInvestment, priceReturn, id) {
                     return firebase.auth().currentUser.getToken(true)
-                    .then(idtoken => {
-                        console.log("Credit Committed")
-                        return $http({
+                        .then(idtoken => {
+                            console.log("Credit Committed")
+                            return $http({
                                 method: "PUT",
                                 url: `https://${firebaseURL}/storedCredits/${id}.json?auth=${idtoken}`,
                                 data: {
@@ -92,15 +95,5 @@ angular.module("StockApp")
                         })
                 }
             }
-            // "set": {
-            //     value: this.creditRequest()
-            //         .then(assignCredit => {
-            //             if (user === newUser) {
-            //                 credits = 100
-            //             } else {
-            //                 credits = previouslyAssignedCreditValue
-            //             }
-            //         })
-            // },
         })
     })

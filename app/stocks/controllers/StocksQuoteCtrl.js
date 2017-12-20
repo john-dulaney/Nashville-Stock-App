@@ -7,44 +7,55 @@ angular.module("StockApp")
     // naming this controller and passing in required methods/factory
     .controller("StocksQuoteCtrl", function ($scope, $location, StocksFactory) {
         // get Form values for plugging into $http req
-        // symbol, series, interval
         //form functions, save calls, some empty array/objects
         quoteRequest = []
         $scope.master = {}
-        $scope.watch = function (stock) {
-            StocksFactory.save(stock)
-        }
+
+        // Deprecated watch function
+        // $scope.watch = function (stock) {
+        //     StocksFactory.save(stock)
+        // }
+
+        // Function that runs on button press to "save" a stock to the users dashboard. 
         $scope.watchUpper = function (topStock) {
+            // Call Factory function that stores the input field's value into Firebase
             StocksFactory.save(topStock)
         }
 
         // Request stock info from api
         $scope.request = function (stock) {
+            // some angular mess that runs on the input button press, grabs the 3 values and send them off
             $scope.master = angular.copy(stock)
+            // push the value into the empty array, get it into the proper scope
             quoteRequest.push($scope.master)
+
             console.log(quoteRequest)
             console.log("Quote request sent, enjoy the wait!")
 
+            // call the GET factory function from StocksFactory. This is an API request from Alpha Vantage.
             StocksFactory.quote(quoteRequest)
                 .then(response => {
                     // empty arrays for our JSON return of a gaggle of objects
                     const stockReturn = []
                     const priceReturn = []
                     const amtReturn = []
-                    // console.log(quoteObjectArray)
+
                     console.log(StocksFactory.cache[0])
 
                     // for in loop to get the prices
                     for (let key in StocksFactory.cache[1]) {
                         let element = StocksFactory.cache[1][key];
+                        // push into arry for use in larger scope
                         stockReturn.push(element)
                     }
 
                     // Second for in loop on the keys returned, returns the first, which is the price.
                     for (let key in stockReturn[0]) {
                         let element = stockReturn[0][key];
+                        // push into arry for use in larger scope
                         priceReturn.push(element)
                     }
+
                     console.log(quoteRequest[0])
 
                     console.log("current price of " + quoteRequest[0].symbol, stockReturn[0]);
@@ -63,7 +74,7 @@ angular.module("StockApp")
                         }
                     }
                     //plug returned values into a chart
-                    // Chart
+                    // Chart that apparently works 
                     const ctx = $("#quoteCanvas");
                     const canvas = new Chart(ctx, {
                         type: 'radar',
@@ -114,7 +125,7 @@ angular.module("StockApp")
                 }) //end of response
         }
 
-        //reset function for the quote form
+        //reset function for the quote form. This does not work.
         $scope.reset = function () {
             $scope.stock = angular.copy($scope.master)
         }

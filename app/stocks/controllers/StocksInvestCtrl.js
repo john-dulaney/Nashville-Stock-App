@@ -6,31 +6,26 @@
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
     .controller("StocksInvestCtrl", function ($scope, $location, CreditFactory) {
+        //setting form value to 1
         $scope.investAmt = {
             value: 1
         }
-
+        //request for Firebase user information for CREDITS
         CreditFactory.creditRequest()
             .then(response => {
-                // console.log(response)
-                // debugger
-                //pull id out for console loggin
+                // pull id out for console loggin
                 $scope.currentUser = response[0].id
-                //pull current accounts un invested credit
+
+                // pull current accounts un invested credit
                 $scope.currentCredit = response[0].heldCredit
+
                 // pull current accounts invested credit
                 $scope.currentInvestedCredit = response[0].investedCredit
-                // telling user how much USD they have invested
-                $scope.investedValueUSD = response[0].investedCredit
-                //telling user how much BTC they have invested
-                $scope.investedValueBTC = $scope.currentInvestedCredit * 0.000060
+
                 console.log("Current user ID: ", response[0])
                 CreditFactory.bitcoin()
             })
-
-
-
-
+            // call the GET factory function for the digital currency bitcoin
         CreditFactory.bitcoin()
             .then(response => {
                     // empty arrays for our JSON return of a gaggle of objects
@@ -40,9 +35,10 @@ angular.module("StockApp")
 
                     //Save credit amount committed and price of BTC at time of bet
                     $scope.bet = function (credits) {
-                        // debugger
+                        // add the credit from the users input field to the amount already in firebase, store it to a variable
                         const totalInvestment = $scope.currentInvestedCredit + credits.amt
 
+                        //call PUT factory function, pass in the summed credits as totainvestment, price of BTC at the time of bet, and the userid
                         CreditFactory.creditPut(totalInvestment, priceReturn, $scope.currentUser)
                     }
 
@@ -60,10 +56,20 @@ angular.module("StockApp")
                     }
 
                     console.log("current price of btc", stockReturn[0]);
-                    const btcPrice = priceReturn[0]
 
                     // print it to the DOM with fancy pants Angular
-                    $scope.print = `${priceReturn[0]}`
+                    $scope.print = priceReturn[0]
+
+                    // use division on the current price of bitcoin. 1USD/USD price for 1BTC
+                    $scope.btcExchangeRate = 1.00 / priceReturn[0]
+
+                    // telling user how much USD they have invested ------------------------- TODO: NEEDS TO ADJUST WITH RISE/FALL OF BTC PRICE
+                    $scope.investedValueUSD = response[0].investedCredit
+
+                    //telling user how much BTC they have invested
+                    $scope.investedValueBTC = $scope.currentInvestedCredit * $scope.btcExchangeRate
+                    console.log("BTC owned after conversion", $scope.investedValueBTC)
+
 
                     // loop to get price history
                     for (let i = 0; i < stockReturn.length; i++) {
@@ -76,7 +82,7 @@ angular.module("StockApp")
                             // }
                         }
                     }
-                    // Chart
+                    // Chart that no longer fucking works
                     const ctx = $("#BTCcanvas");
                     const canvas = new Chart(ctx, {
                         type: 'radar',
@@ -131,18 +137,18 @@ angular.module("StockApp")
 
 
 
-    // valueCheck = () => {
-                //     const theSavedPrice = response[0].BTCpriceLog                    // the saved Bitcoin Value from firebase
-                //     const currentPrice = priceReturn[0]                              // the current Bitcoin value
+// valueCheck = () => {
+//     const theSavedPrice = response[0].BTCpriceLog                    // the saved Bitcoin Value from firebase
+//     const currentPrice = priceReturn[0]                              // the current Bitcoin value
 
-                //     if (currentPrice >= theSavedPrice) {
-                //         // 1 US Dollar equals 0.000055 Bitcoin
-                //         credits = credits.amt * 0.000055
-                //         console.log(credits, "you gained value since your last login")
-                //     } else if (priceReturn[0] < priceReference) {
-                //         credits = credits.amt * 0.000055
-                //         console.log(credits, "you lost money since your last login idiot")
-                //     } else {
-                //         console.log("something went wrong")
-                //     }
-                // }
+//     if (currentPrice >= theSavedPrice) {
+//         // 1 US Dollar equals 0.000055 Bitcoin
+//         credits = credits.amt * 0.000055
+//         console.log(credits, "you gained value since your last login")
+//     } else if (priceReturn[0] < priceReference) {
+//         credits = credits.amt * 0.000055
+//         console.log(credits, "you lost money since your last login idiot")
+//     } else {
+//         console.log("something went wrong")
+//     }
+// }
