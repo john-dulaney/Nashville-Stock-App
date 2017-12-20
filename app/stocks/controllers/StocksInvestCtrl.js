@@ -14,10 +14,15 @@ angular.module("StockApp")
             .then(response => {
                 // console.log(response)
                 // debugger
+                //pull id out for console loggin
                 $scope.currentUser = response[0].id
+                //pull current accounts un invested credit
                 $scope.currentCredit = response[0].heldCredit
+                // pull current accounts invested credit
                 $scope.currentInvestedCredit = response[0].investedCredit
+                // telling user how much USD they have invested
                 $scope.investedValueUSD = response[0].investedCredit
+                //telling user how much BTC they have invested
                 $scope.investedValueBTC = $scope.currentInvestedCredit * 0.000060
                 console.log("Current user ID: ", response[0])
                 CreditFactory.bitcoin()
@@ -74,7 +79,7 @@ angular.module("StockApp")
                     // Chart
                     const ctx = $("#BTCcanvas");
                     const canvas = new Chart(ctx, {
-                        type: 'line',
+                        type: 'radar',
                         data: {
                             labels: ["1hr ago", "50 Min ago", "40 Min ago", "30 Min ago", "20 Min ago", "10 Min ago", "current"],
                             datasets: [{

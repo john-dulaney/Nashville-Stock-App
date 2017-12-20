@@ -66,7 +66,7 @@ angular.module("StockApp")
                     // Chart
                     const ctx = $("#quoteCanvas");
                     const canvas = new Chart(ctx, {
-                        type: 'line',
+                        type: 'radar',
                         data: {
                             labels: ["1hr ago", "50 Min ago", "40 Min ago", "30 Min ago", "20 Min ago", "10 Min ago", "present"],
                             datasets: [{
