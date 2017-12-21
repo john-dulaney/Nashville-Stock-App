@@ -19,10 +19,22 @@
         </div>
         <div class="section">
             <div class="input-field col s6 section">
-                <label class="section">Manually add a Symbol </label><input type="text" ng-model="topStock.symbol" class="section col s6" maxlength="4"/>
+                <label class="section">Manually add a Symbol </label><input 
+                    class="section col s6" 
+                    type="text" 
+                    ng-model="topStock.symbol" 
+                    ng-keydown="$event.keyCode === 13 && watchUpper(topStock) && $setPristine()" 
+                    maxlength="4"
+                    />
             </div>
             <br>
-            <button novalidate ng-click="watchUpper(topStock)" value="Add Stock to Watch List" ng-model="watchListButton" class="section">Add stock to Watch List</button>
+                <button 
+                    novalidate 
+                    ng-click="watchUpper(topStock); $setUntouched()" 
+                    value="Add Stock to Watch List" 
+                    ng-model="watchListButton" 
+                    class="section"
+                    >Add stock to Watch List</button>
             
         </div>
 

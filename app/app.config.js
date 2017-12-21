@@ -52,7 +52,7 @@ angular.module("StockApp").config(function ($routeProvider) {
             templateUrl: 'app/auth/partials/register.html',
             controller: 'AuthCtrl'
         })
-        .otherwise('/register')
+        // .otherwise('/register')
 })
 
 

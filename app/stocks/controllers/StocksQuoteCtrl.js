@@ -15,6 +15,7 @@ angular.module("StockApp")
         $scope.watchUpper = function (topStock) {
             // Call Factory function that stores the input field's value into Firebase
             StocksFactory.save(topStock)
+            StocksFactory.dashQuote(topStock)
         }
 
         // Request stock info from api
@@ -70,8 +71,7 @@ angular.module("StockApp")
                     }
                     //plug returned values into a chart
                     // Chart that apparently works 
-                    const ctx = $scope.quoteCanvas
-                    // const ctx = $("#quoteCanvas");
+                    const ctx = $("#quoteCanvas");
                     const canvas = new Chart(ctx, {
                         type: 'radar',
                         data: {

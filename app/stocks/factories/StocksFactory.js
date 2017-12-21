@@ -19,7 +19,7 @@ angular.module("StockApp")
                         .then(idToken => {
                             return $http({
                                 method: "GET",
-                                url: `${firebaseURL}/storedStock/.json?auth=${idToken}`
+                                url: `https://${firebaseURL}/storedStock/.json?auth=${idToken}`
                             }).then(response => {
                                 const data = response.data
                                 this.cache = Object.keys(data).map(key => {
@@ -80,12 +80,14 @@ angular.module("StockApp")
             },
             // zips up the API Get with the firebase GET. dont understand it.
             "dashQuote": {
-                value: function (tickerSymbol) {
+                value: function (tickerSymbol, topStock) {
+                    debugger
                     console.log("Dashboard quote request sent. (api)")
                     return $http({
                         method: "GET",
                         url: `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${tickerSymbol}&interval=1min&apikey=ZZ2RS5PN56S260FBx`
                     }).then(response => {
+                        debugger
                         const timeSeries = response.data["Time Series (1min)"]
                         const timeSeriesArray = Object.keys(timeSeries)
                             .map(key => {
