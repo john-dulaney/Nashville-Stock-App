@@ -11,11 +11,6 @@ angular.module("StockApp")
         quoteRequest = []
         $scope.master = {}
 
-        // Deprecated watch function
-        // $scope.watch = function (stock) {
-        //     StocksFactory.save(stock)
-        // }
-
         // Function that runs on button press to "save" a stock to the users dashboard. 
         $scope.watchUpper = function (topStock) {
             // Call Factory function that stores the input field's value into Firebase
@@ -75,7 +70,8 @@ angular.module("StockApp")
                     }
                     //plug returned values into a chart
                     // Chart that apparently works 
-                    const ctx = $("#quoteCanvas");
+                    const ctx = $scope.quoteCanvas
+                    // const ctx = $("#quoteCanvas");
                     const canvas = new Chart(ctx, {
                         type: 'radar',
                         data: {
