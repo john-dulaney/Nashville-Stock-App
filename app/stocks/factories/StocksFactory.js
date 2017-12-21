@@ -81,13 +81,13 @@ angular.module("StockApp")
             // zips up the API Get with the firebase GET. dont understand it.
             "dashQuote": {
                 value: function (tickerSymbol, topStock) {
-                    debugger
+                    // debugger
                     console.log("Dashboard quote request sent. (api)")
                     return $http({
                         method: "GET",
                         url: `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${tickerSymbol}&interval=1min&apikey=ZZ2RS5PN56S260FBx`
                     }).then(response => {
-                        debugger
+                        // debugger
                         const timeSeries = response.data["Time Series (1min)"]
                         const timeSeriesArray = Object.keys(timeSeries)
                             .map(key => {

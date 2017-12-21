@@ -1,4 +1,4 @@
-// Author(s): John Dulaney
+// Author(s): John Dulaney and Steve Brownlee
 // Purpose: This module is the controller for the inital Landing page of the site. Manages quote requests as well as saved stocks.
 // ┌(° ͜ʖ͡°)┘
 
