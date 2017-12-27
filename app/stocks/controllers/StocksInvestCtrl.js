@@ -85,7 +85,7 @@ angular.module("StockApp")
                     // Chart that no longer fucking works
                     const ctx = $("#BTCcanvas");
                     const canvas = new Chart(ctx, {
-                        type: 'radar',
+                        type: 'line',
                         data: {
                             labels: ["1hr ago", "50 Min ago", "40 Min ago", "30 Min ago", "20 Min ago", "10 Min ago", "current"],
                             datasets: [{
@@ -115,10 +115,10 @@ angular.module("StockApp")
                         options: {
                             ayout: {
                                 padding: {
-                                    left: 60,
-                                    right: 60,
-                                    top: 60,
-                                    bottom: 60
+                                    left: 50,
+                                    right: 50,
+                                    top: 50,
+                                    bottom: 50
                                 }
                             },
                             scales: {

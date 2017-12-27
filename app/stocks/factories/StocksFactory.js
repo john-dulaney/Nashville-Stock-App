@@ -119,7 +119,7 @@ angular.module("StockApp")
                             const data = response.data
                             this.cache = Object.keys(data).map(key => {
                                 data[key].id = key
-                                console.log(data[key])
+                                // console.log(data[key])
                                 return data[key]
                             })
                             return this.cache
