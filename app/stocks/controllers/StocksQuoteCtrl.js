@@ -18,12 +18,6 @@ angular.module("StockApp")
             StocksFactory.dashQuote(topStock)
         }
 
-        // $scope.oneMinArray = ["7min", "6min", "5min", "4min", "3min", "2min", "1min"]
-        // $scope.fiveMinArray = ["30min", "25min", "20min", "15min", "10min", "5min", "Present"]
-        // $scope.fifteenMinArray = ["90min", "75min", "1hr", "45min", "30min", "15min", "Present"]
-        // $scope.thirtyMinArray = ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"]
-        // $scope.sixtyMinArray = ["6hr", "5hr", "4hr", "3hr", "2hr", "60min", "Present"]
-
         // Request stock info from api
         $scope.request = function (stock) {
             // some angular mess that runs on the input button press, grabs the 3 values and send them off
@@ -76,94 +70,104 @@ angular.module("StockApp")
                         }
                     }
 
+                    // $scope.oneMinArray = ["7min", "6min", "5min", "4min", "3min", "2min", "1min"]
+                    // $scope.fiveMinArray = ["30min", "25min", "20min", "15min", "10min", "5min", "Present"]
+                    // $scope.fifteenMinArray = ["90min", "75min", "1hr", "45min", "30min", "15min", "Present"]
+                    // $scope.thirtyMinArray = ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"]
+                    // $scope.sixtyMinArray = ["6hr", "5hr", "4hr", "3hr", "2hr", "60min", "Present"]
 
-                    const mapLabels = []
 
-                    function chartLabelChecker() {
-                        debugger
-                        const oneMin = $("#1min")
-                        const fiveMin = $("#5min")
-                        const fifteenMin = $("#15min")
-                        const thirtyMin = $("#30min")
-                        const sixtyMin = $("#60min")
+                    // const mapLabels = []
 
-                        // past - > present
-                        if (oneMin.checked === true) {
-                            let oneMinLabels = ["7min", "6min", "5min", "4min", "3min", "2min", "1min"]
-                            mapLabels.push(oneMinLabels)
-                        } else if (fiveMin.checked === true) {
-                            let fiveMinLabels = ["30min", "25min", "20min", "15min", "10min", "5min", "Present"]
-                            mapLabels.push(fiveMinLabels === true)
-                        } else if (fifteenMin.checked === true) {
-                            let fifteenMinLabels = ["90min", "75min", "1hr", "45min", "30min", "15min", "Present"]
-                            mapLabels.push(fifteenMinLabels)
-                        } else if (thirtyMin.checked === true) {
-                            let thirtyMinLabels = ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"]
-                            mapLabels.push(thirtyMinLabels)
-                        } else if (sixtyMin.checked === true) {
-                            let sixtyrMinLabels = ["6hr", "5hr", "4hr", "3hr", "2hr", "60min", "Present"]
-                            mapLabels.push(sixtyMinLabels)
-                        }
-                    }
+                    // function chartLabelChecker() {
+                    //     debugger
+                    //     const oneMin = $("#1min")
+                    //     const fiveMin = $("#5min")
+                    //     const fifteenMin = $("#15min")
+                    //     const thirtyMin = $("#30min")
+                    //     const sixtyMin = $("#60min")
+
+                    //     // past - > present
+                    //     if (oneMin.checked === true) {
+                    //         let oneMinLabels = ["7min", "6min", "5min", "4min", "3min", "2min", "1min"]
+                    //         mapLabels.push(oneMinLabels)
+                    //         // return mapLabels
+                    //     } else if (fiveMin.checked === true) {
+                    //         let fiveMinLabels = ["30min", "25min", "20min", "15min", "10min", "5min", "Present"]
+                    //         mapLabels.push(fiveMinLabels)
+                    //         // return mapLabels
+                    //     } else if (fifteenMin.checked === true) {
+                    //         let fifteenMinLabels = ["90min", "75min", "1hr", "45min", "30min", "15min", "Present"]
+                    //         mapLabels.push(fifteenMinLabels)
+                    //         // return mapLabels
+                    //     } else if (thirtyMin.checked === true) {
+                    //         let thirtyMinLabels = ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"]
+                    //         mapLabels.push(thirtyMinLabels)
+                    //         // return mapLabels
+                    //     } else if (sixtyMin.checked === true) {
+                    //         let sixtyrMinLabels = ["6hr", "5hr", "4hr", "3hr", "2hr", "60min", "Present"]
+                    //         mapLabels.push(sixtyMinLabels)
+                    //         // return mapLabels
+                    //     }
+                    // }
 
 
                     //plug returned values into a chart
                     // Chart that apparently works 
-                    chartLabelChecker()
-                        .then(function chartjs() {
-                            const ctx = $("#quoteCanvas");
-                            const canvas = new Chart(ctx, {
-                                type: 'line',
-                                data: {
-                                    labels: mapLabels,
-                                    datasets: [{
-                                        label: `'Price of ${quoteRequest[0].symbol}'`,
-                                        data: amtReturn, // insert response data here 
-                                        backgroundColor: ["lightGreen"]
-                                            // [
-                                            //     'rgba(255, 99, 132, 0.2)',
-                                            //     'rgba(54, 162, 235, 0.2)',
-                                            //     'rgba(255, 206, 86, 0.2)',
-                                            //     'rgba(75, 192, 192, 0.2)',
-                                            //     'rgba(153, 102, 255, 0.2)',
-                                            //     'rgba(255, 159, 64, 0.2)'
-                                            // ],
-                                            ,
-                                        borderColor: ["black"]
-                                            // [
-                                            //     'rgba(255,99,132,1)',
-                                            //     'rgba(54, 162, 235, 1)',
-                                            //     'rgba(255, 206, 86, 1)',
-                                            //     'rgba(75, 192, 192, 1)',
-                                            //     'rgba(153, 102, 255, 1)',
-                                            //     'rgba(255, 159, 64, 1)'
-                                            // ]
-                                            ,
-                                        borderWidth: 1
-                                    }]
-                                },
-                                options: {
-                                    layout: {
-                                        padding: {
-                                            left: 50,
-                                            right: 50,
-                                            top: 50,
-                                            bottom: 50
-                                        }
-                                    },
-                                    scales: {
-                                        yAxes: [{
-                                            ticks: {
-                                                beginAtZero: false
-                                            }
-                                        }]
-                                    }
+                    // chartLabelChecker()
+                    //     .then(function chartjs() {
+                    const ctx = $("#quoteCanvas");
+                    const canvas = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"],
+                            datasets: [{
+                                label: `'Price of ${quoteRequest[0].symbol}'`,
+                                data: amtReturn, // insert response data here 
+                                backgroundColor: ["lightGreen"]
+                                    // [
+                                    //     'rgba(255, 99, 132, 0.2)',
+                                    //     'rgba(54, 162, 235, 0.2)',
+                                    //     'rgba(255, 206, 86, 0.2)',
+                                    //     'rgba(75, 192, 192, 0.2)',
+                                    //     'rgba(153, 102, 255, 0.2)',
+                                    //     'rgba(255, 159, 64, 0.2)'
+                                    // ],
+                                    ,
+                                borderColor: ["black"]
+                                    // [
+                                    //     'rgba(255,99,132,1)',
+                                    //     'rgba(54, 162, 235, 1)',
+                                    //     'rgba(255, 206, 86, 1)',
+                                    //     'rgba(75, 192, 192, 1)',
+                                    //     'rgba(153, 102, 255, 1)',
+                                    //     'rgba(255, 159, 64, 1)'
+                                    // ]
+                                    ,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            layout: {
+                                padding: {
+                                    left: 50,
+                                    right: 50,
+                                    top: 50,
+                                    bottom: 50
                                 }
-                            });
-                            // offer the ability to add stock to dashboard
+                            },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: false
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                    // offer the ability to add stock to dashboard
 
-                        })
-                }) //end of response
+                    }) //end of response
         }
 
         //reset function for the quote form. This does not work.

@@ -25,7 +25,7 @@ angular.module("StockApp")
                 console.log("Current user ID: ", response[0])
                 CreditFactory.bitcoin()
             })
-            // call the GET factory function for the digital currency bitcoin
+        // call the GET factory function for the digital currency bitcoin
         CreditFactory.bitcoin()
             .then(response => {
                     // empty arrays for our JSON return of a gaggle of objects
@@ -79,41 +79,43 @@ angular.module("StockApp")
                             //for in loop in an attempt to get the first key+value for all 20 runs
                             var valueUSD = btcPreviousHour["1a. price (USD)"];
                             btcReturn.push(valueUSD)
-                            // }
+                            console.log(btcReturn)
                         }
                     }
-                    // Chart that no longer fucking works
+
                     const ctx = $("#BTCcanvas");
                     const canvas = new Chart(ctx, {
                         type: 'line',
                         data: {
                             labels: ["1hr ago", "50 Min ago", "40 Min ago", "30 Min ago", "20 Min ago", "10 Min ago", "current"],
                             datasets: [{
-                                label: 'Price of BTC',
+                                label: `'Price of Bitcoin`,
                                 data: btcReturn, // insert response data here 
-                                backgroundColor: [
-                                    "lightGreen"
-                                    // 'rgba(255, 99, 132, 0.2)',
-                                    // 'rgba(54, 162, 235, 0.2)',
-                                    // 'rgba(255, 206, 86, 0.2)',
-                                    // 'rgba(75, 192, 192, 0.2)',
-                                    // 'rgba(153, 102, 255, 0.2)',
-                                    // 'rgba(255, 159, 64, 0.2)'
-                                ],
-                                borderColor: [
-                                    "black"
-                                    // 'rgba(255,99,132,1)',
-                                    // 'rgba(54, 162, 235, 1)',
-                                    // 'rgba(255, 206, 86, 1)',
-                                    // 'rgba(75, 192, 192, 1)',
-                                    // 'rgba(153, 102, 255, 1)',
-                                    // 'rgba(255, 159, 64, 1)'
-                                ],
+                                backgroundColor: ["lightGreen"]
+                                    // [
+                                    //     'rgba(255, 99, 132, 0.2)',
+                                    //     'rgba(54, 162, 235, 0.2)',
+                                    //     'rgba(255, 206, 86, 0.2)',
+                                    //     'rgba(75, 192, 192, 0.2)',
+                                    //     'rgba(153, 102, 255, 0.2)',
+                                    //     'rgba(255, 159, 64, 0.2)'
+                                    // ],
+                                    ,
+                                borderColor: ["black"]
+                                    // [
+                                    //     'rgba(255,99,132,1)',
+                                    //     'rgba(54, 162, 235, 1)',
+                                    //     'rgba(255, 206, 86, 1)',
+                                    //     'rgba(75, 192, 192, 1)',
+                                    //     'rgba(153, 102, 255, 1)',
+                                    //     'rgba(255, 159, 64, 1)'
+                                    // ]
+                                    ,
                                 borderWidth: 1
                             }]
                         },
                         options: {
-                            ayout: {
+                            layout: {
                                 padding: {
                                     left: 50,
                                     right: 50,
@@ -130,25 +132,8 @@ angular.module("StockApp")
                             }
                         }
                     });
+
+
                 } // end of response
             )
     }) // end of module
-
-
-
-
-// valueCheck = () => {
-//     const theSavedPrice = response[0].BTCpriceLog                    // the saved Bitcoin Value from firebase
-//     const currentPrice = priceReturn[0]                              // the current Bitcoin value
-
-//     if (currentPrice >= theSavedPrice) {
-//         // 1 US Dollar equals 0.000055 Bitcoin
-//         credits = credits.amt * 0.000055
-//         console.log(credits, "you gained value since your last login")
-//     } else if (priceReturn[0] < priceReference) {
-//         credits = credits.amt * 0.000055
-//         console.log(credits, "you lost money since your last login idiot")
-//     } else {
-//         console.log("something went wrong")
-//     }
-// }
