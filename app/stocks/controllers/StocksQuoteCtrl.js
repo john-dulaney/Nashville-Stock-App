@@ -16,6 +16,12 @@ angular.module("StockApp")
             // Call Factory function that stores the input field's value into Firebase
             StocksFactory.save(topStock)
             StocksFactory.dashQuote(topStock)
+            $scope.reset()
+        }
+
+        //reset function for the quote form. This does not work.
+        $scope.reset = function () {
+            $scope.stock = angular.copy($scope.master)
         }
 
         // Request stock info from api
@@ -116,65 +122,39 @@ angular.module("StockApp")
                     // Chart that apparently works 
                     // chartLabelChecker()
                     //     .then(function chartjs() {
-                    const ctx = $("#quoteCanvas");
-                    const canvas = new Chart(ctx, {
-                        type: 'line',
-                        data: {
-                            labels: ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"],
-                            datasets: [{
-                                label: `'Price of ${quoteRequest[0].symbol}'`,
-                                data: amtReturn, // insert response data here 
-                                backgroundColor: ["lightGreen"]
-                                    // [
-                                    //     'rgba(255, 99, 132, 0.2)',
-                                    //     'rgba(54, 162, 235, 0.2)',
-                                    //     'rgba(255, 206, 86, 0.2)',
-                                    //     'rgba(75, 192, 192, 0.2)',
-                                    //     'rgba(153, 102, 255, 0.2)',
-                                    //     'rgba(255, 159, 64, 0.2)'
-                                    // ],
-                                    ,
-                                borderColor: ["black"]
-                                    // [
-                                    //     'rgba(255,99,132,1)',
-                                    //     'rgba(54, 162, 235, 1)',
-                                    //     'rgba(255, 206, 86, 1)',
-                                    //     'rgba(75, 192, 192, 1)',
-                                    //     'rgba(153, 102, 255, 1)',
-                                    //     'rgba(255, 159, 64, 1)'
-                                    // ]
-                                    ,
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            layout: {
-                                padding: {
-                                    left: 50,
-                                    right: 50,
-                                    top: 50,
-                                    bottom: 50
-                                }
-                            },
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: false
-                                    }
-                                }]
-                            }
-                        }
-                    });
+                    // const ctx = $("#quoteCanvas");
+                    // const canvas = new Chart(ctx, {
+                    //     type: 'line',
+                    //     data: {
+                    //         labels: ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"],
+                    //         datasets: [{
+                    //             label: `'Price of ${quoteRequest[0].symbol}'`,
+                    //             data: amtReturn, // insert response data here 
+                    //             backgroundColor: ["lightGreen"],
+                    //             borderColor: ["black"],
+                    //             borderWidth: 1
+                    //         }]
+                    //     },
+                    //     options: {
+                    //         layout: {
+                    //             padding: {
+                    //                 left: 50,
+                    //                 right: 50,
+                    //                 top: 50,
+                    //                 bottom: 50
+                    //             }
+                    //         },
+                    //         scales: {
+                    //             yAxes: [{
+                    //                 ticks: {
+                    //                     beginAtZero: false
+                    //                 }
+                    //             }]
+                    //         }
+                    //     }
+                    // });
                     // offer the ability to add stock to dashboard
 
-                    }) //end of response
+                }) //end of response
         }
-
-        //reset function for the quote form. This does not work.
-        $scope.reset = function () {
-            $scope.stock = angular.copy($scope.master)
-        }
-        $scope.reset()
-
-
     }) //end of controller

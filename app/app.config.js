@@ -48,11 +48,18 @@ angular.module("StockApp").config(function ($routeProvider) {
                 isAuth
             }
         })
+        .when('/stocks/modal', {
+            templateUrl: 'app/stocks/partials/quoteModal.html',
+            controller: 'QuoteModalCtrl.js',
+            resolve: {
+                isAuth
+            }
+        })
         .when('/register', {
             templateUrl: 'app/auth/partials/register.html',
             controller: 'AuthCtrl'
         })
-        // .otherwise('/register')
+    // .otherwise('/register')
 })
 
 

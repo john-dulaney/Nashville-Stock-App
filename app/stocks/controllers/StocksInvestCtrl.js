@@ -28,7 +28,7 @@ angular.module("StockApp")
         // call the GET factory function for the digital currency bitcoin
         CreditFactory.bitcoin()
             .then(response => {
-                    // empty arrays for our JSON return of a gaggle of objects
+                    // empty arrays for our $http return of a gaggle of objects
                     const stockReturn = []
                     const priceReturn = []
                     const btcReturn = []
@@ -79,7 +79,7 @@ angular.module("StockApp")
                             //for in loop in an attempt to get the first key+value for all 20 runs
                             var valueUSD = btcPreviousHour["1a. price (USD)"];
                             btcReturn.push(valueUSD)
-                            console.log(btcReturn)
+                            // console.log(btcReturn)
                         }
                     }
 
@@ -91,26 +91,8 @@ angular.module("StockApp")
                             datasets: [{
                                 label: `'Price of Bitcoin`,
                                 data: btcReturn, // insert response data here 
-                                backgroundColor: ["lightGreen"]
-                                    // [
-                                    //     'rgba(255, 99, 132, 0.2)',
-                                    //     'rgba(54, 162, 235, 0.2)',
-                                    //     'rgba(255, 206, 86, 0.2)',
-                                    //     'rgba(75, 192, 192, 0.2)',
-                                    //     'rgba(153, 102, 255, 0.2)',
-                                    //     'rgba(255, 159, 64, 0.2)'
-                                    // ],
-                                    ,
-                                borderColor: ["black"]
-                                    // [
-                                    //     'rgba(255,99,132,1)',
-                                    //     'rgba(54, 162, 235, 1)',
-                                    //     'rgba(255, 206, 86, 1)',
-                                    //     'rgba(75, 192, 192, 1)',
-                                    //     'rgba(153, 102, 255, 1)',
-                                    //     'rgba(255, 159, 64, 1)'
-                                    // ]
-                                    ,
+                                backgroundColor: ["lightGreen"],
+                                borderColor: ["black"],
                                 borderWidth: 1
                             }]
                         },

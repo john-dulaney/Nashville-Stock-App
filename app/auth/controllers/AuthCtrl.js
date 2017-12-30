@@ -40,8 +40,4 @@ angular.module("StockApp")
                     AuthFactory.logMeIn(registerNewUser)
                 })
         }
-
-
-
-
     })
