@@ -5,7 +5,7 @@
 // imports
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
-    .controller("QuoteModalCtrl", function ($scope, $location, $uibModal, $log, $document) {
+    .controller("QuoteModalCtrl", function ($scope, $location, CreditFactory) {
 
 
         var $ctrl = this;

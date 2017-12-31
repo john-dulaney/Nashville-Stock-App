@@ -33,8 +33,7 @@
                 <p>
                         <!-- <tt>interval = {{stock.interval | json}}</tt><br/> -->
                     <input type="button" ng-click="reset()" value="Reset" />
-                   <a href="/#!/stocks/quoteModal"><input type="submit" ng-click="request(stock)" value="Get quote" /></a>
-                   
+                    <input type="submit" ng-click="request(stock)" value="Get quote" />
                 </p>
             </section>
         </form>
@@ -43,9 +42,8 @@
 
         <!-- <pre>Value of form - Unsaved = {{stock | json}}</pre> -->
         <!-- <pre>Value of form  - Saved  = {{master | json}}</pre> -->
-
+        
         <div>{{quote}}</div>
-
         <canvas id="quoteCanvas" width="400" height="400"></canvas>
     </div>
 </section>
