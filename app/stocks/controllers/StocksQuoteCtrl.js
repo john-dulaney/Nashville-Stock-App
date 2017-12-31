@@ -15,7 +15,7 @@ angular.module("StockApp")
         $scope.watchUpper = function (topStock) {
             // Call Factory function that stores the input field's value into Firebase
             StocksFactory.save(topStock)
-            StocksFactory.dashQuote(topStock)
+            StocksFactory.dashQuote()
             $scope.reset()
         }
 
