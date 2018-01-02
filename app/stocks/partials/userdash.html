@@ -1,49 +1,37 @@
-    <!-- <div ng-controller="StocksDashCtrl"> -->
+<!-- <h3>Welcome to the Everyday Stock App {{ userEmail }}</h3> -->
+<!-- C A R O U S E L -->
+<div class="carousel carousel-slider" data-indicators="true">
+    <div class="carousel-fixed-item center">
+        <a href="/#!/stocks/quote" class="btn waves-effect grey darken-3 white-text">Get a Quote</a>
+    </div>
+    <a class="carousel-item" href="/#!/stocks/userdash"><img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/suitGuy.jpeg"></a>
+    <a class="carousel-item" href="/#!/stocks/quote"><img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/quotePic.jpg"></a>
+    <a class="carousel-item" href="/#!/stocks/invest"><img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/hipsterGuy.jpeg"></a>
+    <a class="carousel-item" href="/#!/stocks/about"><img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/thumbMan.jpeg"></a>
+</div>
+<br>
+<br>
 
-        <!-- <h3>Welcome to the Everyday Stock App {{ userEmail }}</h3> -->
+<!-- S T O C K S -->
+<div class="col s4 center-align">
+    <h5 class="truncate">Your Watched Stocks</h5>
+    <li ng-repeat="quoteObject in allQuotes">
+        <span style="font-weight: bold"> {{quoteObject.symbol}}:</span>
+        <span class="green-text text-darken-2">$ {{quoteObject.price}}</span></li>
+</div>
 
-  <div class="carousel carousel-slider" data-indicators="true">
-        <div class="carousel-fixed-item center">
-                <a href="/#!/stocks/quote" class="btn waves-effect grey darken-3 white-text">Get a Quote</a>
-              </div>
-        <a class="carousel-item" href="/#!/stocks/userdash"><img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/suitGuy.jpeg"></a>
-        <a class="carousel-item" href="/#!/stocks/quote"><img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/quotePic.jpg"></a>
-        <a class="carousel-item" href="/#!/stocks/invest"><img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/hipsterGuy.jpeg"></a>
-        <a class="carousel-item" href="/#!/stocks/about"><img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/thumbMan.jpeg"></a>
-      </div>
-      <br>
-      <br>
-            <div class="col s4 center-align">
-                <h5 class="truncate">Your Watched Stocks</h5>
-                <li ng-repeat="quoteObject in allQuotes">
-                    <span style="font-weight: bold"> {{quoteObject.symbol}}:</span>
-                    <span class="green-text text-darken-2">$ {{quoteObject.price}}</span></li>
-            </div>
+</div>
+<div class="section">
+    <div class="input-field col s6 section">
+        <label for="addSymbol" class="section">Manually add a Symbol</label><input id="addSymbol" class="col s6" type="text"
+            ng-model="topStock.symbol" ng-keydown="$event.keyCode === 13 && watchUpper(topStock) && $setPristine()" maxlength="4"
+        />
+    </div>
+    <br>
+    <button novalidate ng-click="watchUpper(topStock); $setUntouched()" value="Add Stock to Watch List" ng-model="watchListButton">Add stock to Watch List</button>
 
-        </div>
-        <div class="section">
-            <div class="input-field col s6 section">
-                <label for="addSymbol" class="section">Manually add a Symbol</label><input 
-                    id="addSymbol"
-                    class="col s6" 
-                    type="text" 
-                    ng-model="topStock.symbol" 
-                    ng-keydown="$event.keyCode === 13 && watchUpper(topStock) && $setPristine()" 
-                    maxlength="4"
-                    />
-            </div>
-            <br>
-                <button 
-                    novalidate 
-                    ng-click="watchUpper(topStock); $setUntouched()" 
-                    value="Add Stock to Watch List" 
-                    ng-model="watchListButton" 
-                    >Add stock to Watch List</button>
-            
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-
-    <!-- </div> -->
+</div>
+<br>
+<br>
+<br>
+<br>

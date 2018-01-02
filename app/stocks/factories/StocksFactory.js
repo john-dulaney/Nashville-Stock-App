@@ -7,6 +7,7 @@ angular.module("StockApp")
     // naming the factory, passing in appropriate angular methods
     .factory("StocksFactory", function ($http, $timeout, $location, $route, AuthFactory) {
         const firebaseURL = "everyday-stock-app.firebaseio.com"
+        
         return Object.create(null, {
             "cache": {
                 value: null,

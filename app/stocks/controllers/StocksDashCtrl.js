@@ -11,6 +11,14 @@ angular.module("StockApp")
             .carousel({
                     fullWidth: true
                 });
+
+        
+        // Function that runs on button press to "save" a stock to the users dashboard. 
+        $scope.watchUpper = function (topStock) {
+            // Call Factory function that stores the input field's value into Firebase
+            StocksFactory.save(topStock)
+            // StocksFactory.dashQuote()
+        }        
         
         // Call a GET factory function to get the User's stored stocks 
         StocksFactory.show()

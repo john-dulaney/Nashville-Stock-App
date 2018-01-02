@@ -16,14 +16,6 @@ angular.module("StockApp")
                 fullWidth: true
             });
 
-        // Function that runs on button press to "save" a stock to the users dashboard. 
-        $scope.watchUpper = function (topStock) {
-            // Call Factory function that stores the input field's value into Firebase
-            StocksFactory.save(topStock)
-            // StocksFactory.dashQuote()
-            $scope.reset()
-        }
-
         //reset function for the quote form. This does not work.
         $scope.reset = function () {
             $scope.stock = angular.copy($scope.master)
