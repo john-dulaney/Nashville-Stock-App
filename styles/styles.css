@@ -9,26 +9,14 @@ nav>ul>li {
 .navtitle {
     font-size: 22px;
 }
-
+#btcPic {
+    width: 85%;
+}
 #quoteIMG {
         width: 85%;
         margin-left: 15px;
     }
     
-/* #quoteIMG:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-} */
-
-/* body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  } */
-
 #bodyDiv {
     margin-top: 50px;
 }
@@ -76,4 +64,9 @@ a:active {
 #quoteCanvas {
         max-width: 600px;
         max-height: 600px;
+}
+
+.carousel-item   {
+    width:100%;
+
 }

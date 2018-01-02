@@ -5,7 +5,7 @@
 // imports
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
-    .controller("StocksDashCtrl", function ($scope, $location, StocksFactory, AuthFactory, $q) {
+    .controller("StocksDashCtrl", function ($scope, $location, StocksFactory, AuthFactory, $q, usSpinnerService, $rootScope) {
 
         $('.carousel.carousel-slider')
             .carousel({
@@ -18,8 +18,23 @@ angular.module("StockApp")
             // Call Factory function that stores the input field's value into Firebase
             StocksFactory.save(topStock)
             $('#addSymbol').val('');
-            // StocksFactory.dashQuote()
         }        
+
+        // Angular Loading Spinner to help the user understand how garbage my api is
+        $scope.startSpin = function() {
+            usSpinnerService.spin
+        };
+        $scope.stopSpin = function() {
+            usSpinnerService.stop();
+          }
+        $scope.spinneractive = false;
+        $rootScope.$on('us-spinner:spin', function(event, key) {
+          $scope.spinneractive = true;
+        })
+        $rootScope.$on('us-spinner:stop', function(event, key) {
+          $scope.spinneractive = false;
+        })
+        
         
         // Call a GET factory function to get the User's stored stocks 
         StocksFactory.show()
@@ -39,7 +54,11 @@ angular.module("StockApp")
                         $scope.allQuotes = quoteObjectArray
                         console.log(quoteObjectArray)
                         console.log("Response. (API, Firebase)")
+                        usSpinnerService.stop();
                     })
 
             })
     })
+
+    
+ 

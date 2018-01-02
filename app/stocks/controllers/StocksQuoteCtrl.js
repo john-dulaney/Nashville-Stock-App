@@ -5,7 +5,7 @@
 // imports
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
-    .controller("StocksQuoteCtrl", function ($scope, $location, StocksFactory) {
+    .controller("StocksQuoteCtrl", function ($scope, $location, StocksFactory, usSpinnerService, $rootScope) {
         // get Form values for plugging into $http req
         //form functions, save calls, some empty array/objects
         quoteRequest = []
@@ -16,13 +16,32 @@ angular.module("StockApp")
             $scope.stock = angular.copy($scope.master)
         }
 
+    
+        // $scope.startSpin = function() {
+        //     usSpinnerService.spin
+        // };
+        // $scope.stopSpin = function() {
+        //     usSpinnerService.stop();
+        //   }
+
+  
+        // $scope.spinneractive = false;
+    
+        // $rootScope.$on('us-spinner:spin', function(event, key) {
+        //   $scope.spinneractive = true;
+        // })
+    
+        // $rootScope.$on('us-spinner:stop', function(event, key) {
+        //   $scope.spinneractive = false;
+        // })
+
         // Request stock info from api
         $scope.request = function (stock) {
             // some angular mess that runs on the input button press, grabs the 3 values and send them off
             $scope.master = angular.copy(stock)
             // push the value into the empty array, get it into the proper scope
             quoteRequest.push($scope.master)
-
+        
             console.log(quoteRequest)
             console.log("Quote request sent, enjoy the wait!")
 
@@ -67,7 +86,7 @@ angular.module("StockApp")
                             amtReturn.push(open)
                         }
                     }
-
+                    usSpinnerService.stop();
                     const ctx = $("#quoteCanvas");
                     const canvas = new Chart(ctx, {
                         type: 'line',

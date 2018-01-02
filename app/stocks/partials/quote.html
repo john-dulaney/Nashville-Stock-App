@@ -1,6 +1,8 @@
     <div ng-controller="StocksQuoteCtrl">
 
                         <img id="quoteIMG" class="align-center"  src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/charts.jpeg"></a>
+
+                        
         <!-- <button ng-click="watch(stock)">Add stock to Watch List</button>  -->
         <form novalidate class="quote__Form black-text center-align" ng-keydown="$event.keyCode === 13 && request(stock)" >
             <label for="symbolField" class="black-text" style="font-size:22px;">Get a Quote: <span class="smallFont">(ex: Microsoft -> MSFT)</span></label>
@@ -34,7 +36,7 @@
                 <p>
                         <!-- <tt>interval = {{stock.interval | json}}</tt><br/> -->
                     <input class="center-align" type="button" ng-click="reset()" value="Reset" />
-                    <input class="center-align" type="submit" ng-click="request(stock)" value="Get quote" />
+                    <input class="center-align" type="submit" ng-click="request(stock); startSpin()" value="Get quote" />
                 </p>
             </section>
         </form>
@@ -45,5 +47,6 @@
         <!-- <pre>Value of form  - Saved  = {{master | json}}</pre> -->
         
         <div class="center green-text text-darken-2">{{quote}}</div>
+        <span us-spinner="{radius:30, width:8, length: 16}"></span>
         <canvas id="quoteCanvas" width="400" height="400"></canvas>
     </div>

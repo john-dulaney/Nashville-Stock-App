@@ -38,7 +38,7 @@ angular.module("StockApp")
                     console.log(stock) 
                     return firebase.auth().currentUser.getToken(true)
                         .then(idtoken => {
-                            debugger
+                            // debugger
                             return $http({
                                 method: "POST",
                                 url: `https://${firebaseURL}/storedStock/.json?auth=${idtoken}`,
