@@ -130,7 +130,7 @@ angular.module("StockApp")
                             datasets: [{
                                 label: `'Price of ${quoteRequest[0].symbol}'`,
                                 data: amtReturn, // insert response data here 
-                                backgroundColor: ["lightGreen"],
+                                backgroundColor: ["grey darken-4"],
                                 borderColor: ["black"],
                                 borderWidth: 1
                             }]

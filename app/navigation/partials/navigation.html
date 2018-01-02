@@ -1,6 +1,6 @@
-<ul ng-controller="NavigationCtrl" class="nav-wrapper nav-extended green darken-4 white-text ">
+<ul ng-controller="NavigationCtrl" class="nav-wrapper nav-extended grey darken-2 white-text ">
      
-    <li><a href="/#!/stocks/userdash" class="active">Home</a></li>
+    <li><a href="/#!/stocks/userdash" class="active navtitle">EDSA</a></li>
     <li><a href="/#!/stocks/quote">Get a Quote</a></li>
     <li><a href="#!/stocks/invest">Bitcoin</a></li>
     <li><a href="#!/stocks/about">About Us</a></li>
@@ -8,12 +8,6 @@
     <!-- <li><a href="https://john-dulaney.github.io/front-end-capstone/#!/stocks/quote">Get a Quote</a></li> -->
     <!-- <li><a href="https://john-dulaney.github.io/front-end-capstone/#!/stocks/invest">Bitcoin</a></li> -->
     <!-- <li><span ng-include="'app/navigation/partials/search.html'"></span></li> -->
-    <div class="nav-content">
-            <span class="nav-title">Title</span>
-            <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
-              <i class="material-icons">add</i>
-            </a>
-          </div>
     <li class="right">
         <span ng-if="isAuthenticated()" class="right">
                 <a href="#" ng-click="logout()" class="right">Logout</a>

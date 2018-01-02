@@ -2,9 +2,24 @@
     background-color: rgba(183, 4, 94, 0.1)
 } */
 nav>ul>li {
+    padding: 50px;
     display: inline;
     color: white;
 }
+.navtitle {
+    font-size: 22px;
+}
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
 
 #bodyDiv {
     margin-top: 50px;
@@ -26,6 +41,12 @@ a:visited {
 a:hover {
     text-decoration: none;
     color: white;
+}
+
+.navtitle:hover {
+    text-decoration: none;
+    color: white;
+    transform: scale(1.1);
 }
 
 a:focus {
