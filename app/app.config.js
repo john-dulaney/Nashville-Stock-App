@@ -30,7 +30,7 @@ angular.module("StockApp").config(function ($routeProvider) {
     $routeProvider.
     when("/stocks/userdash", {
             templateUrl: "app/stocks/partials/userdash.html",
-            controller: "StocksQuoteCtrl",
+            controller: "StocksDashCtrl",
             resolve: {
                 isAuth
             }
@@ -60,7 +60,7 @@ angular.module("StockApp").config(function ($routeProvider) {
         //     templateUrl: 'app/stocks/partials/quoteModal.html',
         //     controller: 'QuoteModalCtrl.js',
         //     resolve: {
-        //         isAuth
+                // isAuth
         //     }
         // })
         .when('/register', {
@@ -75,5 +75,5 @@ angular.module("StockApp").config(function ($routeProvider) {
 // .when('/stocks/detail/:employeeId', {
 //     templateUrl: 'app/stocks/partials/detail.html',
 //     controller: 'EmployeeDetailCtrl',
-//     resolve: { isAuth }
+    // resolve: { isAuth }
 // })

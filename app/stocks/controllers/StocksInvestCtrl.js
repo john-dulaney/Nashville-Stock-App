@@ -10,6 +10,11 @@ angular.module("StockApp")
         $scope.investAmt = {
             value: 1
         }
+
+        $('.carousel.carousel-slider')
+        .carousel({
+                fullWidth: true
+            });
         //request for Firebase user information for CREDITS
         CreditFactory.creditRequest()
             .then(response => {
