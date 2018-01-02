@@ -21,6 +21,7 @@
   "dependencies": {
     "angular-loading-bar": "^0.9.0",
     "angular-route": "^1.6.7",
+    "angular-spinner": "^1.0.1",
     "angular-spinners": "^5.0.5",
     "angular-ui-bootstrap": "^2.5.6",
     "chart.js": "^2.7.1",

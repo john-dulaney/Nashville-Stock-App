@@ -17,6 +17,7 @@ angular.module("StockApp")
         $scope.watchUpper = function (topStock) {
             // Call Factory function that stores the input field's value into Firebase
             StocksFactory.save(topStock)
+            $('#addSymbol').val('');
             // StocksFactory.dashQuote()
         }        
         

@@ -1,10 +1,10 @@
     <div ng-controller="StocksQuoteCtrl">
-            <div class="carousel carousel-slider">
-                    <a class="carousel-item" href="/#!/stocks/quote"><img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/charts.jpeg"></a>
-                  </div>
+
+                        <img id="quoteIMG" class="align-center"  src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/charts.jpeg"></a>
         <!-- <button ng-click="watch(stock)">Add stock to Watch List</button>  -->
-        <form novalidate class="quote__Form black-text" ng-keydown="$event.keyCode === 13 && request(stock)" >
-            <label class="black-text">Get a Quote: <span class="smallFont">(ex: Microsoft -> MSFT)</span> <input type="text" class="input-field col s6" ng-model="stock.symbol" maxlength="4"/></label>
+        <form novalidate class="quote__Form black-text center-align" ng-keydown="$event.keyCode === 13 && request(stock)" >
+            <label for="symbolField" class="black-text" style="font-size:22px;">Get a Quote: <span class="smallFont">(ex: Microsoft -> MSFT)</span></label>
+            <input id="symbolField" type="text" class="input-field inline" ng-model="stock.symbol" maxlength="4"/>
             <div class="smallFont section"> Get a full list and potentially make the desire for using this site useless <a href="https://www.nyse.com/listings_directory/stock">here.</a></div>
             <section class="black-text">
                 Select a time series:
@@ -33,8 +33,8 @@
                 <label for="60min" class="black-text">60min</label>
                 <p>
                         <!-- <tt>interval = {{stock.interval | json}}</tt><br/> -->
-                    <input type="button" ng-click="reset()" value="Reset" />
-                    <input type="submit" ng-click="request(stock)" value="Get quote" />
+                    <input class="center-align" type="button" ng-click="reset()" value="Reset" />
+                    <input class="center-align" type="submit" ng-click="request(stock)" value="Get quote" />
                 </p>
             </section>
         </form>

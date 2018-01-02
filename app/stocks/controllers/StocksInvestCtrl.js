@@ -11,10 +11,6 @@ angular.module("StockApp")
             value: 1
         }
 
-        $('.carousel.carousel-slider')
-        .carousel({
-                fullWidth: true
-            });
         //request for Firebase user information for CREDITS
         CreditFactory.creditRequest()
             .then(response => {
@@ -45,6 +41,9 @@ angular.module("StockApp")
 
                         //call PUT factory function, pass in the summed credits as totainvestment, price of BTC at the time of bet, and the userid
                         CreditFactory.creditPut(totalInvestment, priceReturn, $scope.currentUser)
+                            .then(response => {
+                            $('#invest').val('')}
+                        )
                     }
 
 

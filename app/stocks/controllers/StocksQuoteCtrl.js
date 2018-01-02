@@ -11,11 +11,6 @@ angular.module("StockApp")
         quoteRequest = []
         $scope.master = {}
 
-        $('.carousel.carousel-slider')
-        .carousel({
-                fullWidth: true
-            });
-
         //reset function for the quote form. This does not work.
         $scope.reset = function () {
             $scope.stock = angular.copy($scope.master)
@@ -81,7 +76,7 @@ angular.module("StockApp")
                             datasets: [{
                                 label: `'Price of ${quoteRequest[0].symbol}'`,
                                 data: amtReturn, // insert response data here 
-                                backgroundColor: ["grey darken-4"],
+                                backgroundColor: ["#FAFAFA"],
                                 borderColor: ["black"],
                                 borderWidth: 1
                             }]
@@ -113,49 +108,49 @@ angular.module("StockApp")
 
 
 
-     // $scope.oneMinArray = ["7min", "6min", "5min", "4min", "3min", "2min", "1min"]
-                    // $scope.fiveMinArray = ["30min", "25min", "20min", "15min", "10min", "5min", "Present"]
-                    // $scope.fifteenMinArray = ["90min", "75min", "1hr", "45min", "30min", "15min", "Present"]
-                    // $scope.thirtyMinArray = ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"]
-                    // $scope.sixtyMinArray = ["6hr", "5hr", "4hr", "3hr", "2hr", "60min", "Present"]
+// $scope.oneMinArray = ["7min", "6min", "5min", "4min", "3min", "2min", "1min"]
+// $scope.fiveMinArray = ["30min", "25min", "20min", "15min", "10min", "5min", "Present"]
+// $scope.fifteenMinArray = ["90min", "75min", "1hr", "45min", "30min", "15min", "Present"]
+// $scope.thirtyMinArray = ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"]
+// $scope.sixtyMinArray = ["6hr", "5hr", "4hr", "3hr", "2hr", "60min", "Present"]
 
 
-                    // const mapLabels = []
+// const mapLabels = []
 
-                    // function chartLabelChecker() {
-                    //     debugger
-                    //     const oneMin = $("#1min")
-                    //     const fiveMin = $("#5min")
-                    //     const fifteenMin = $("#15min")
-                    //     const thirtyMin = $("#30min")
-                    //     const sixtyMin = $("#60min")
+// function chartLabelChecker() {
+//     debugger
+//     const oneMin = $("#1min")
+//     const fiveMin = $("#5min")
+//     const fifteenMin = $("#15min")
+//     const thirtyMin = $("#30min")
+//     const sixtyMin = $("#60min")
 
-                    //     // past - > present
-                    //     if (oneMin.checked === true) {
-                    //         let oneMinLabels = ["7min", "6min", "5min", "4min", "3min", "2min", "1min"]
-                    //         mapLabels.push(oneMinLabels)
-                    //         // return mapLabels
-                    //     } else if (fiveMin.checked === true) {
-                    //         let fiveMinLabels = ["30min", "25min", "20min", "15min", "10min", "5min", "Present"]
-                    //         mapLabels.push(fiveMinLabels)
-                    //         // return mapLabels
-                    //     } else if (fifteenMin.checked === true) {
-                    //         let fifteenMinLabels = ["90min", "75min", "1hr", "45min", "30min", "15min", "Present"]
-                    //         mapLabels.push(fifteenMinLabels)
-                    //         // return mapLabels
-                    //     } else if (thirtyMin.checked === true) {
-                    //         let thirtyMinLabels = ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"]
-                    //         mapLabels.push(thirtyMinLabels)
-                    //         // return mapLabels
-                    //     } else if (sixtyMin.checked === true) {
-                    //         let sixtyrMinLabels = ["6hr", "5hr", "4hr", "3hr", "2hr", "60min", "Present"]
-                    //         mapLabels.push(sixtyMinLabels)
-                    //         // return mapLabels
-                    //     }
-                    // }
+//     // past - > present
+//     if (oneMin.checked === true) {
+//         let oneMinLabels = ["7min", "6min", "5min", "4min", "3min", "2min", "1min"]
+//         mapLabels.push(oneMinLabels)
+//         // return mapLabels
+//     } else if (fiveMin.checked === true) {
+//         let fiveMinLabels = ["30min", "25min", "20min", "15min", "10min", "5min", "Present"]
+//         mapLabels.push(fiveMinLabels)
+//         // return mapLabels
+//     } else if (fifteenMin.checked === true) {
+//         let fifteenMinLabels = ["90min", "75min", "1hr", "45min", "30min", "15min", "Present"]
+//         mapLabels.push(fifteenMinLabels)
+//         // return mapLabels
+//     } else if (thirtyMin.checked === true) {
+//         let thirtyMinLabels = ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"]
+//         mapLabels.push(thirtyMinLabels)
+//         // return mapLabels
+//     } else if (sixtyMin.checked === true) {
+//         let sixtyrMinLabels = ["6hr", "5hr", "4hr", "3hr", "2hr", "60min", "Present"]
+//         mapLabels.push(sixtyMinLabels)
+//         // return mapLabels
+//     }
+// }
 
 
-                    //plug returned values into a chart
-                    // Chart that apparently works 
-                    // chartLabelChecker()
-                    //     .then(function chartjs() {
+//plug returned values into a chart
+// Chart that apparently works 
+// chartLabelChecker()
+//     .then(function chartjs() {
