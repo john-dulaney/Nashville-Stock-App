@@ -15,7 +15,7 @@ angular.module("StockApp")
         $scope.watchUpper = function (topStock) {
             // Call Factory function that stores the input field's value into Firebase
             StocksFactory.save(topStock)
-            StocksFactory.dashQuote()
+            // StocksFactory.dashQuote()
             $scope.reset()
         }
 
@@ -122,37 +122,37 @@ angular.module("StockApp")
                     // Chart that apparently works 
                     // chartLabelChecker()
                     //     .then(function chartjs() {
-                    // const ctx = $("#quoteCanvas");
-                    // const canvas = new Chart(ctx, {
-                    //     type: 'line',
-                    //     data: {
-                    //         labels: ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"],
-                    //         datasets: [{
-                    //             label: `'Price of ${quoteRequest[0].symbol}'`,
-                    //             data: amtReturn, // insert response data here 
-                    //             backgroundColor: ["lightGreen"],
-                    //             borderColor: ["black"],
-                    //             borderWidth: 1
-                    //         }]
-                    //     },
-                    //     options: {
-                    //         layout: {
-                    //             padding: {
-                    //                 left: 50,
-                    //                 right: 50,
-                    //                 top: 50,
-                    //                 bottom: 50
-                    //             }
-                    //         },
-                    //         scales: {
-                    //             yAxes: [{
-                    //                 ticks: {
-                    //                     beginAtZero: false
-                    //                 }
-                    //             }]
-                    //         }
-                    //     }
-                    // });
+                    const ctx = $("#quoteCanvas");
+                    const canvas = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ["3hr", "150min", "2hr", "90min", "1hr", "30min", "Present"],
+                            datasets: [{
+                                label: `'Price of ${quoteRequest[0].symbol}'`,
+                                data: amtReturn, // insert response data here 
+                                backgroundColor: ["lightGreen"],
+                                borderColor: ["black"],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            layout: {
+                                padding: {
+                                    left: 50,
+                                    right: 50,
+                                    top: 50,
+                                    bottom: 50
+                                }
+                            },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: false
+                                    }
+                                }]
+                            }
+                        }
+                    });
                     // offer the ability to add stock to dashboard
 
                 }) //end of response

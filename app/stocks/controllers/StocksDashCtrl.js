@@ -7,6 +7,11 @@ angular.module("StockApp")
     // naming this controller and passing in required methods/factory
     .controller("StocksDashCtrl", function ($scope, $location, StocksFactory, AuthFactory, $q) {
 
+        $('.carousel.carousel-slider')
+            .carousel({
+                    fullWidth: true
+                });
+        
         // Call a GET factory function to get the User's stored stocks 
         StocksFactory.show()
             .then(response => {
