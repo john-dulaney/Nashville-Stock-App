@@ -26,6 +26,7 @@ angular.module("StockApp").run(function (FIREBASE_CONFIG) {
 })
 
 angular.module("StockApp").config(function ($routeProvider) {
+    // debugger
     $routeProvider.
     when("/stocks/userdash", {
             templateUrl: "app/stocks/partials/userdash.html",
@@ -44,6 +45,13 @@ angular.module("StockApp").config(function ($routeProvider) {
         .when('/stocks/quote', {
             templateUrl: 'app/stocks/partials/quote.html',
             controller: 'StocksQuoteCtrl',
+            resolve: {
+                isAuth
+            }
+        })
+        .when('/stocks/about', {
+            templateUrl: 'app/stocks/partials/about.html',
+            // controller: '',
             resolve: {
                 isAuth
             }

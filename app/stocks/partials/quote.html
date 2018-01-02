@@ -1,6 +1,7 @@
-<section class="section">
-    <div ng-controller="StocksQuoteCtrl" class="section">
-
+    <div ng-controller="StocksQuoteCtrl">
+            <div class="carousel carousel-slider" data-indicators="true">
+                    <a class="carousel-item" href="/#!/stocks/quote"><img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/charts.jpeg"></a>
+                  </div>
         <!-- <button ng-click="watch(stock)">Add stock to Watch List</button>  -->
         <form novalidate class="quote__Form black-text" ng-keydown="$event.keyCode === 13 && request(stock)" >
             <label class="black-text">Get a Quote: <span class="smallFont">(ex: Microsoft -> MSFT)</span> <input type="text" class="input-field col s6" ng-model="stock.symbol" maxlength="4"/></label>
@@ -46,4 +47,3 @@
         <div class="center green-text text-darken-2">{{quote}}</div>
         <canvas id="quoteCanvas" width="400" height="400"></canvas>
     </div>
-</section>
