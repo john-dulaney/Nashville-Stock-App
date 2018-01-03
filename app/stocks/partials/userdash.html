@@ -14,23 +14,25 @@
 <span us-spinner="{radius:30, width:8, length: 16}"></span>
 
 <!-- S T O C K S -->
-<div class="col s4 center-align">
-    <h5 class="truncate">Your Watched Stocks</h5>
-    <li ng-repeat="quoteObject in allQuotes">
-        <span style="font-weight: bold"> {{quoteObject.symbol}}:</span>
-        <span class="green-text text-darken-2">$ {{quoteObject.price}}</span></li>
-</div>
+<div class="row">
 
-</div>
-<div class="section">
+    <div class="col s6 center-align">
+        <h5 class="truncate">Your Watched Stocks</h5>
+        <li ng-repeat="quoteObject in allQuotes">
+            <span style="font-weight: bold"> {{quoteObject.symbol}}:</span>
+            <span class="green-text text-darken-2">$ {{quoteObject.price}}</span></li>
+    </div>
+
     <div class="input-field col s6 section">
-        <label for="addSymbol" class="section">Manually add a Symbol</label>
-        <input id="addSymbol" class="col s6" type="text" ng-model="topStock.symbol" ng-keydown="$event.keyCode === 13 && watchUpper(topStock) && $setPristine()" maxlength="4"
-        />
+        <div>Manually add a Symbol:</div>
+        <!-- <br>     -->
+        <input id="addSymbol" class="" type="text" ng-model="topStock.symbol" ng-keydown="$event.keyCode === 13 && watchUpper(topStock) && $setPristine()" maxlength="4" />
+        <br>
+            <button class="btn" novalidate ng-click="watchUpper(topStock); startSpin()" value="Add Stock to Watch List" ng-model="watchListButton">Add stock to Watch List</button>
     </div>
     <br>
-    <button novalidate ng-click="watchUpper(topStock); startSpin()" value="Add Stock to Watch List" ng-model="watchListButton">Add stock to Watch List</button>
 
+</div>
 </div>
 <br>
 <br>

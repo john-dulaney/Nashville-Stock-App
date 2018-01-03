@@ -68,7 +68,8 @@ angular.module("StockApp")
                     $scope.btcExchangeRate = 1.00 / priceReturn[0]
 
                     // telling user how much USD they have invested ------------------------- TODO: NEEDS TO ADJUST WITH RISE/FALL OF BTC PRICE
-                    $scope.investedValueUSD = response[0].investedCredit
+                    // $scope.investedValueUSD = response[0].investedCredit
+                    // $scope.investedValueUSD = $scope.btcExchangeRate * $scope.currentInvestedCredit
 
                     //telling user how much BTC they have invested
                     $scope.investedValueBTC = $scope.currentInvestedCredit * $scope.btcExchangeRate

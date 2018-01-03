@@ -12,6 +12,12 @@ nav>ul>li {
 #btcPic {
     width: 85%;
 }
+
+#investForm {
+    background-color: white;
+    padding: 20px;
+    margin-top:8px
+}
 #quoteIMG {
         width: 85%;
         margin-left: 15px;
@@ -19,6 +25,10 @@ nav>ul>li {
     
 #bodyDiv {
     margin-top: 50px;
+}
+
+#addSymbol {
+    width:150px;
 }
 
 .smallFont {
@@ -56,10 +66,10 @@ a:active {
     color: white;
 }
 
-#BTCcanvas {
+/* #BTCcanvas {
         max-width: 600px;
         max-height: 600px;
-}
+} */
 
 #quoteCanvas {
         max-width: 600px;

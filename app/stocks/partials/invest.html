@@ -1,47 +1,57 @@
-      <img id="btcPic" src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/btc.jpeg">
+<!-- <img id="btcPic" src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/btc.jpeg"> -->
 </div>
 
 <section class="section">
+  <h4>Investing with EDSA: How it works</h4>
+  <p>Each user is given 100 fake credits worth $1 USD each. You are allowed to bet up to 20 at a time. THe idea is to 'invest' currency on the price of bitcoin, and shot the reflected value of your investment as the price of BTC rises and falls.</p>
 
-      <div class="row">
-                <div class="col s12 m7">
-                  <div class="card">
-                    <div class="card-image">
-                      <img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/btc2.jpeg">
-                      <span class="card-title">Checkout Bitcoin!</span>
-                    </div>
-                    <div class="card-content">
-                      <p>I am a very simple card. I am good at containing small bits of information.
-                      I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">This is a link</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  <div class="row">
+      <div class="card">
+          <div class="card-image">
+            <img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/homer.png">
+            <span class="card-title"></span>
+          </div>
+          <div class="card-content">
+    <!-- token betting -->
+    <form id="investForm" name="invest__Form" class="col s6 center-align">
+      <label for="invest">Select Amount of credits you wish to "invest":
+        <input type="number" id="invest" name="input" ng-model="credits.amt" min="1" max="20" maxlength="2" required></label>
+        <button type="submit" ng-click="bet(credits)" value="Bet Credits!">BET</button>
+          <div role="alert">
+            <span class="error" ng-show="invest__From.input.$error.required">You must enter a number! (Minimum 1; Maximum 20)</span>
+            <span class="error" ng-show="invest__From.input.$error.number">We need a number not letters stupid!</span>
+          </div>
+        </div>
+      </div>
+
+  </form>
+    <div class="col s6 center-align">
+      <div class="card">
+        <div class="card-image">
+          <img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/btc2.jpeg">
+          <span class="card-title"></span>
+        </div>
+        <div class="card-content">
+          <div>Current Price of BTC = <span style="font-weight: bold;">${{print}}</span></div>
+          <div>Credits Held = <span style="font-weight: bold;">{{currentCredit}}</span></div>
+          <div>Credits Invested = <span style="font-weight: bold;">{{currentInvestedCredit}}</span></div>
+          <!-- <div>Credits value in USD = <span style="font-weight: bold;">${{investedValueUSD}}</span></div> -->
+          <div>Credits value in BTC = <span style="font-weight: bold;">{{investedValueBTC}}</span></div>
+        </div>
+        <!-- <div class="card-action">
+          <a href="#">This is a link</a>
+        </div> -->
+      </div>
+    </div>
+    <canvas class="col s4 center-align" id="BTCcanvas" ></canvas>
+  </div>
 
 
-<h5>Checkout Bitcoin!</h5>
-<br>
-<div>Current Price of BTC = <span style="font-weight: bold;">${{print}}</span></div>
-<div>SteveBucks Held = <span style="font-weight: bold;">{{currentCredit}}</span></div>
-<div>SteveBucks Invested = <span style="font-weight: bold;">{{currentInvestedCredit}}</span></div>
-<div>SteveBucks value in USD = <span style="font-weight: bold;">${{investedValueUSD}}</span></div>
-<div>SteveBucks value in BTC = <span style="font-weight: bold;">{{investedValueBTC}}</span></div>
-<!-- token betting -->
-<form name="invest__Form">
-        <label>Select Amount of credits you wish to "invest":
-                <input type="number" id="invest" name="input" ng-model="credits.amt" min="1" max="20" maxlength="2" required>
-                <button type="submit" ng-click="bet(credits)" value="Bet Credits!">BET</button>
-                        <div role="alert">
-                        <span class="error" ng-show="invest__From.input.$error.required">You must enter a number! (Minimum 1; Maximum 20)</span>
-                        <span class="error" ng-show="invest__From.input.$error.number">We need a number not letters stupid!</span>
-                        </div>
-</form>
+ 
 </section>
 <br>
 <br>
-<h5>Last Hour of Activity for BTC</h5>
-<canvas id="BTCcanvas" width="400" height="400" ></canvas>
+<!-- <h5>Last Hour of Activity for BTC</h5> -->
+
+<!-- width="400" height="400"  -->
 <!-- class="light-green lighten-5" -->
