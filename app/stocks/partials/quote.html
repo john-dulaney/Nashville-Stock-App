@@ -36,7 +36,7 @@
                 <label for="60min" class="black-text">60min</label>
                 <p>
                         <!-- <tt>interval = {{stock.interval | json}}</tt><br/> -->
-                    <input class="right btn waves-effect grey darken-3 white-text" type="button" ng-click="reset()" value="Reset" />
+                    <input class="right btn waves-effect waves-light grey darken-3 white-text" type="button" ng-click="reset()" value="Reset" />
                     <input class="right btn waves-effect grey darken-3 white-text" type="submit" ng-click="request(stock); startSpin()" value="Get quote" />
                 </p>
             </section>
@@ -46,8 +46,12 @@
 
         <!-- <pre>Value of form - Unsaved = {{stock | json}}</pre> -->
         <!-- <pre>Value of form  - Saved  = {{master | json}}</pre> -->
-        
-        <div class="center green-text text-darken-2">{{quote}}</div>
+        <br>
         <!-- <span us-spinner="{radius:30, width:8, length: 16}"></span> -->
-        <canvas id="quoteCanvas" width="400" height="400"></canvas>
+        
+        <br>
+        <br>
+        <div class="col s4 center-align green-text text-darken-2">{{quote}}</div>
+        <!-- <span us-spinner="{radius:30, width:8, length: 16}"></span> -->
+        <canvas id="quoteCanvas" class="col s4 center-align"></canvas>
     </div>
