@@ -6,14 +6,14 @@
   <p>Each user is given 100 fake credits worth $1 USD each. You are allowed to bet up to 20 at a time. THe idea is to 'invest' currency on the price of bitcoin, and shot the reflected value of your investment as the price of BTC rises and falls.</p>
 
   <div class="row">
-      <div class="card">
+      <div class="card col s6 center-align">
           <div class="card-image">
-            <img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/homer.png">
-            <span class="card-title"></span>
+            <img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/homer%20(1).png">
           </div>
+            <span class="card-title"></span>
           <div class="card-content">
     <!-- token betting -->
-    <form id="investForm" name="invest__Form" class="col s6 center-align">
+    <form id="investForm" name="invest__Form" class="enter-align">
       <label for="invest">Select Amount of credits you wish to "invest":
         <input type="number" id="invest" name="input" ng-model="credits.amt" min="1" max="20" maxlength="2" required></label>
         <button type="submit" ng-click="bet(credits)" value="Bet Credits!">BET</button>
@@ -23,10 +23,11 @@
           </div>
         </div>
       </div>
-
+      <span us-spinner="{radius:30, width:8, length: 16}"></span>
+      
   </form>
     <div class="col s6 center-align">
-      <div class="card">
+      <div class="card shit">
         <div class="card-image">
           <img src="https://raw.githubusercontent.com/john-dulaney/front-end-capstone/master/app/stocks/partials/images/btc2.jpeg">
           <span class="card-title"></span>

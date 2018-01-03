@@ -5,11 +5,25 @@
 // imports
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
-    .controller("StocksInvestCtrl", function ($scope, $location, CreditFactory) {
+    .controller("StocksInvestCtrl", function ($scope, $location, CreditFactory, usSpinnerService, $rootScope) {
         //setting form value to 1
         $scope.investAmt = {
             value: 1
         }
+        // Angular Loading Spinner to help the user understand how garbage my api is
+        $scope.startSpin = function() {
+            usSpinnerService.spin
+        };
+        $scope.stopSpin = function() {
+            usSpinnerService.stop();
+          }
+        $scope.spinneractive = false;
+        $rootScope.$on('us-spinner:spin', function(event, key) {
+          $scope.spinneractive = true;
+        })
+        $rootScope.$on('us-spinner:stop', function(event, key) {
+          $scope.spinneractive = false;
+        })
 
         //request for Firebase user information for CREDITS
         CreditFactory.creditRequest()
@@ -45,7 +59,7 @@ angular.module("StockApp")
                             $('#invest').val('')}
                         )
                     }
-
+                    usSpinnerService.stop()
 
                     // for in loop to get the BTC prices
                     for (let key in CreditFactory.cache[1]) {

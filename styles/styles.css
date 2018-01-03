@@ -9,6 +9,10 @@ nav>ul>li {
 .navtitle {
     font-size: 22px;
 }
+#carousel {
+    width:100%;
+    height:10%;
+}
 #btcPic {
     width: 85%;
 }
@@ -19,7 +23,7 @@ nav>ul>li {
     margin-top:8px
 }
 #quoteIMG {
-        width: 85%;
+        width: 100%;
         margin-left: 15px;
     }
     
@@ -30,7 +34,13 @@ nav>ul>li {
 #addSymbol {
     width:150px;
 }
+#symbolField {
+    width:150px;
+}
 
+.shit {
+    padding-bottom:42px;
+}
 .smallFont {
     font-size: 13px;
     font-weight: italic;
@@ -76,7 +86,3 @@ a:active {
         max-height: 600px;
 }
 
-.carousel-item   {
-    width:100%;
-
-}

@@ -5,7 +5,7 @@
 // imports
 angular.module("StockApp")
     // naming this controller and passing in required methods/factory
-    .controller("StocksQuoteCtrl", function ($scope, $location, StocksFactory, usSpinnerService, $rootScope) {
+    .controller("StocksQuoteCtrl", function ($scope, $location, StocksFactory) {
         // get Form values for plugging into $http req
         //form functions, save calls, some empty array/objects
         quoteRequest = []
@@ -48,6 +48,7 @@ angular.module("StockApp")
             // call the GET factory function from StocksFactory. This is an API request from Alpha Vantage.
             StocksFactory.quote(quoteRequest)
                 .then(response => {
+                        // usSpinnerService.stop();
                     // empty arrays for our JSON return of a gaggle of objects
                     const stockReturn = []
                     const priceReturn = []
@@ -86,7 +87,7 @@ angular.module("StockApp")
                             amtReturn.push(open)
                         }
                     }
-                    usSpinnerService.stop();
+                    // usSpinnerService.stop();
                     const ctx = $("#quoteCanvas");
                     const canvas = new Chart(ctx, {
                         type: 'line',
