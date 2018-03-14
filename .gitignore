@@ -6,7 +6,6 @@ __pycache__
 bin
 obj
 *.db
-*.sqlite3
 .vscode
 .eslintrc.json
 Gruntfile.js

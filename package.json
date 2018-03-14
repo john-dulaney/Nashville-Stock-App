@@ -1,7 +1,7 @@
 {
-  "name": "front-end-capstone",
+  "name": "Nashville-Stock-App",
   "version": "1.0.0",
-  "description": "Capstone!",
+  "description": "NSS Front End Capstone. Stock watching app.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
